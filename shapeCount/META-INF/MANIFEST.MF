@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: data-center-manager
+Implementation-Version: 1.5.0
+Built-By: user
+Implementation-Vendor-Id: com.gis.manager
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_171
+Main-Class: com.gis.manager.Application
+

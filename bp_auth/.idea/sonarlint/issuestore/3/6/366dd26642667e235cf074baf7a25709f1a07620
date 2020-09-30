@@ -1,0 +1,5 @@
+
+†"squid:ClassVariableVisibilityCheck"TMake TTLMILLS a static final constant or non-public and provide accessors if needed.(ϋ¤ς8Σ–ώμ-
+nsquid:S3008"SRename this field "TTLMILLS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ϋ¤ς8Σ–ώμ-
+Isquid:S1444".Make this "public static TTLMILLS" field final(ϋ¤ς8Σ–ώμ-
+[squid:S1118":Add a private constructor to hide the implicit public one.(όΤ­ύÿÿÿÿ8Σ–ώμ-

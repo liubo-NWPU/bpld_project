@@ -1,0 +1,15 @@
+
+=squid:S1643"Use a StringBuilder instead.(îéöšüÿÿÿÿ8ÉŒ¬Ëí-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÉŒ¬Ëí-
+Psquid:S2864"4Iterate over the "entrySet" instead of the "keySet".(«ñá¬8ÉŒ¬Ëí-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÉŒ¬Ëí-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÉŒ¬Ëí-
+bsquid:S1192"FDefine a constant instead of duplicating this literal "utf-8" 7 times.(²ÂÍ«8ÉŒ¬Ëí-
+Usquid:S2864"4Iterate over the "entrySet" instead of the "keySet".(½Ö²’ûÿÿÿÿ8ÉŒ¬Ëí-
+[squid:S1118":Add a private constructor to hide the implicit public one.(ë¢ñãûÿÿÿÿ8ÉŒ¬Ëí-
+asquid:S2147"ECombine this catch with the one at line 116, which has the same body.(”ı¾8ÉŒ¬Ëí-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÉŒ¬Ëí-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(˜‘Ÿ8ÉŒ¬Ëí-
+nsquid:S1192"MDefine a constant instead of duplicating this literal "Content-type" 3 times.(€ˆ®Êøÿÿÿÿ8ÉŒ¬Ëí-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ãÈîÿüÿÿÿÿ8ÉŒ¬Ëí-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÉŒ¬Ëí-

@@ -1,0 +1,12 @@
+
+gsquid:UselessImportCheck">Remove this unused import 'com.geovis.core.constant.Constant'.(õêÂÖ8Á¹¯úÚ-
+jsquid:UselessImportCheck"ARemove this unused import 'com.geovis.web.domain.system.SysUser'.(­ªû8Á¹¯úÚ-
+osquid:UselessImportCheck"FRemove this unused import 'org.apache.shiro.authz.annotation.Logical'.(šü—†8Á¹¯úÚ-
+Ysquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Á¹¯úÚ-
+isquid:UselessImportCheck";Remove this unused import 'com.github.pagehelper.PageInfo'.(‡Õ©šüÿÿÿÿ8Á¹¯úÚ-
+squid:UselessImportCheck"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8Á¹¯úÚ-
+jsquid:UselessImportCheck"<Remove this unused import 'io.swagger.annotations.ApiParam'.(…÷Åúÿÿÿÿ8Á¹¯úÚ-
+ksquid:UselessImportCheck"BRemove this unused import 'javax.servlet.http.HttpServletRequest'.(ø©¹…8Á¹¯úÚ-
+osquid:UselessImportCheck"FRemove this unused import 'com.geovis.web.service.system.UserService'.(Ó³âï8Á¹¯úÚ-
+esquid:CallToDeprecatedMethod"3Remove this use of "description"; it is deprecated.(ıäÇ±ıÿÿÿÿ8Á¹¯úÚ-
+{squid:UselessImportCheck"RRemove this unused import 'org.apache.shiro.authz.annotation.RequiresPermissions'.(ëÇ«º8Á¹¯úÚ-

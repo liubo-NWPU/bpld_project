@@ -1,0 +1,23 @@
+
+jsquid:S1858“"F"yzm" is already a string, there's no need to call "toString()" on it.(Äıõ ûÿÿÿÿ8¹‚æÎõ-
+esquid:S1126í"AReplace this if-then-else statement by a single return statement.(¤¦ß‘üÿÿÿÿ8¹‚æÎõ-
+Lsquid:S1481¢"-Remove this unused "realPath" local variable.(‚áí8¹‚æÎõ-
+bsquid:CallToDeprecatedMethod"3Remove this use of "description"; it is deprecated.(ÀÒ–Ò8¹‚æÎõ-
+esquid:S3457€"AFormat specifiers should be used instead of string concatenation.(åğÿ¹şÿÿÿÿ8¹‚æÎõ-
+esquid:S3457"AFormat specifiers should be used instead of string concatenation.(ÍÍô’ûÿÿÿÿ8¹‚æÎõ-
+dsquid:S2147–"ECombine this catch with the one at line 276, which has the same body.(ï­£Ä8¹‚æÎõ-
+esquid:S3457ó"AFormat specifiers should be used instead of string concatenation.(¹ÒğÙøÿÿÿÿ8¹‚æÎõ-
+usquid:S37762"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(¬ †ûÿÿÿÿ8¹‚æÎõ-
+‡squid:S1157“"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(Äıõ ûÿÿÿÿ8¹‚æÎõ-
+vsquid:S3776‰"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(»üÜÿÿÿÿÿ8¹‚æÎõ-
+nsquid:S3027ƒ"JPut single-quotes around '.' to use the faster "lastIndexOf(char)" method.(ª¿Ïúÿÿÿÿ8¹‚æÎõ-
+[squid:S2629„"7Use the built-in formatting to construct this argument.(Î¬Çıÿÿÿÿ8¹‚æÎõ-
+esquid:S3457Ù"AFormat specifiers should be used instead of string concatenation.(åğÿ¹şÿÿÿÿ8¹‚æÎõ-
+isquid:S1858;"F"yzm" is already a string, there's no need to call "toString()" on it.(Äıõ ûÿÿÿÿ8¹‚æÎõ-
+wsquid:S1192J"YDefine a constant instead of duplicating this literal "éªŒè¯ç åˆå§‹åŒ–å¤±è´¥" 4 times.(ïµÖ»8¹‚æÎõ-
+†squid:S4087¼"bRemove this "close" call; closing the resource is handled automatically by the try-with-resources.(µö¹šúÿÿÿÿ8¹‚æÎõ-
+Gsquid:S1148•"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¹‚æÎõ-
+†squid:S1157;"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(Äıõ ûÿÿÿÿ8¹‚æÎõ-
+Gsquid:S1148—"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8¹‚æÎõ-
+[squid:S2629"7Use the built-in formatting to construct this argument.(ÍÍô’ûÿÿÿÿ8¹‚æÎõ-
+esquid:S3457„"AFormat specifiers should be used instead of string concatenation.(Î¬Çıÿÿÿÿ8¹‚æÎõ-

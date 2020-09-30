@@ -1,0 +1,6 @@
+2020-03-05 02:11:49 [main] INFO  com.geovis.GeovisApplication - Starting GeovisApplication on DESKTOP-DE9B9BD with PID 15756 (E:\data\bpld\bp_auth\target\classes started by user in E:\data\bpld\bp_auth)
+2020-03-05 02:11:49 [main] DEBUG com.geovis.GeovisApplication - Running with Spring Boot v2.0.3.RELEASE, Spring v5.0.7.RELEASE
+2020-03-05 02:11:49 [main] INFO  com.geovis.GeovisApplication - The following profiles are active: devpostgresql
+2020-03-05 02:11:56 [main] DEBUG c.g.core.config.EHCacheConfig - 加载EHCacheConfig.ehCacheManagerFactoryBean....
+2020-03-05 02:11:56 [main] DEBUG c.g.core.config.EHCacheConfig - 加载EHCacheConfig.ehCacheCacheManager...
+2020-03-05 02:11:58 [main] INFO  com.geovis.GeovisApplication - Started GeovisApplication in 10.482 seconds (JVM running for 12.095)

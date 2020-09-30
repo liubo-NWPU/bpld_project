@@ -1,0 +1,10219 @@
+
+:toclevels: 3
+:numbered:
+= GEOVISUAV产品接口
+
+
+[[_overview]]
+== 概览
+所有对外开发的API列表
+
+
+=== 版本信息
+[%hardbreaks]
+__版本__ : V1.0
+
+
+=== URI scheme
+[%hardbreaks]
+__域名__ : localhost:443
+__基础路径__ : /
+
+
+=== 标签
+
+* datalog-controller : Datalog Controller
+* demo-controller : demo测试接口
+* dict-controller : 数据字典接口
+* fk-fkcs-controller : 飞控参数接口
+* fk-fkgl-controller : 飞控管理接口
+* login-controller : 用户登录登出接口
+* org-controller : 组织机构管理接口
+* proxy-controller : Proxy Controller
+* resource-controller : 资源管理接口
+* role-controller : 角色管理接口
+* upload-controller : Upload Controller
+* user-controller : 用户管理接口
+* yh-yhfj-controller : 隐患附件接口
+* yh-yhgl-controller : 隐患管理接口
+* yh-yhlc-controller : 隐患流程接口
+
+
+
+
+[[_paths]]
+== 资源
+
+[[_datalog-controller_resource]]
+=== Datalog-controller
+Datalog Controller
+
+
+[[_listallusingget]]
+==== listAll
+....
+GET /system/datalog
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**creater** +
+__可选__||string
+|**Query**|**dataContent** +
+__可选__||string
+|**Query**|**dataId** +
+__可选__||string
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**id** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**tableName** +
+__可选__||string
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|**Query**|**versionNumber** +
+__可选__||integer (int32)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/datalog
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "creater" : "string",
+  "dataContent" : "string",
+  "dataId" : "string",
+  "delFlag" : "string",
+  "id" : "string",
+  "page" : 0,
+  "rows" : 0,
+  "tableName" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "versionNumber" : 0
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_diffdataversionusingget]]
+==== diffDataVersion
+....
+GET /system/datalog/getDiffDataVersion/{tableName}/{dataId}/{version1}/{version2}
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**dataId** +
+__必填__|dataId|string
+|**Path**|**tableName** +
+__必填__|tableName|string
+|**Path**|**version1** +
+__必填__|version1|string
+|**Path**|**version2** +
+__必填__|version2|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/datalog/getDiffDataVersion/string/string/string/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_difflastversionusingget]]
+==== diffLastVersion
+....
+GET /system/datalog/getDiffLastVersion/{tableName}/{dataId}
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**dataId** +
+__必填__|dataId|string
+|**Path**|**tableName** +
+__必填__|tableName|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/datalog/getDiffLastVersion/string/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listversionnumberusingget]]
+==== listVersionNumber
+....
+GET /system/datalog/listVersion/{tableName}/{dataId}
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**dataId** +
+__必填__|dataId|string
+|**Path**|**tableName** +
+__必填__|tableName|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/datalog/listVersion/string/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_demo-controller_resource]]
+=== Demo-controller
+demo测试接口
+
+
+[[_saveusingpost]]
+==== 保存demo
+....
+POST /system/demo
+....
+
+
+===== 说明
+保存demo
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**demo** +
+__可选__|demo|<<_demo,Demo>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/demo
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "id" : "string",
+  "name" : "string",
+  "page" : 0,
+  "rows" : 0,
+  "type" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_updateusingput]]
+==== 修改demo
+....
+PUT /system/demo
+....
+
+
+===== 说明
+修改demo
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**demo** +
+__可选__|demo|<<_demo,Demo>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/demo
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "id" : "string",
+  "name" : "string",
+  "page" : 0,
+  "rows" : 0,
+  "type" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_deleteusingdelete]]
+==== 删除demo
+....
+DELETE /system/demo/{id}
+....
+
+
+===== 说明
+删除demo
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__必填__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/demo/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_getbyidtomapusingget]]
+==== 获取demoMap
+....
+GET /system/demoByIdToMap/{id}
+....
+
+
+===== 说明
+获取demoMap
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__必填__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/demoByIdToMap/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_getbynameusingget]]
+==== 传参demo示例1
+....
+GET /system/demoByName/{name}
+....
+
+
+===== 说明
+传参demo示例一个参数
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**name** +
+__必填__|name|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/demoByName/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_getbynameandtypeusingget]]
+==== 传参demo示例2
+....
+GET /system/demoByNameAndType/{name}/{type}
+....
+
+
+===== 说明
+传参demo示例多个参数
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**name** +
+__必填__|name|string
+|**Path**|**type** +
+__必填__|type|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/demoByNameAndType/string/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_getbynametomapsusingget]]
+==== 获取demoMaps
+....
+GET /system/demoByNameToMaps/{name}
+....
+
+
+===== 说明
+获取demoMaps
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**name** +
+__必填__|name|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/demoByNameToMaps/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_getbytypeusingget]]
+==== 传参demo示例3
+....
+GET /system/demoByType/{type}
+....
+
+
+===== 说明
+传参demo示例一个参数非map
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**type** +
+__必填__|type|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/demoByType/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listallusingget_1]]
+==== 获取所有demo
+....
+GET /system/demos
+....
+
+
+===== 说明
+获取所有demo
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**id** +
+__可选__||string
+|**Query**|**name** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**type** +
+__可选__||string
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/demos
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "id" : "string",
+  "name" : "string",
+  "page" : 0,
+  "rows" : 0,
+  "type" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_dict-controller_resource]]
+=== Dict-controller
+数据字典接口
+
+
+[[_saveusingpost_1]]
+==== 添加单个字典
+....
+POST /system/dicts
+....
+
+
+===== 说明
+添加单个字典
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysDict** +
+__可选__|sysDict|<<_sysdict,SysDict>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/dicts
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "code" : "string",
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "description" : "string",
+  "extValue" : "string",
+  "isDesign" : "string",
+  "label" : "string",
+  "page" : 0,
+  "rows" : 0,
+  "sort" : 0,
+  "type" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listallusingget_2]]
+==== 获取字典值
+....
+GET /system/dicts
+....
+
+
+===== 说明
+获取字典值
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**code** +
+__可选__||string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**description** +
+__可选__||string
+|**Query**|**extValue** +
+__可选__||string
+|**Query**|**isDesign** +
+__可选__||string
+|**Query**|**label** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**sort** +
+__可选__||integer (int32)
+|**Query**|**type** +
+__可选__||string
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/dicts
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "code" : "string",
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "description" : "string",
+  "extValue" : "string",
+  "isDesign" : "string",
+  "label" : "string",
+  "page" : 0,
+  "rows" : 0,
+  "sort" : 0,
+  "type" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_updatedictusingput]]
+==== 编辑单个字典
+....
+PUT /system/dicts
+....
+
+
+===== 说明
+编辑单个字典
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysDict** +
+__可选__|sysDict|<<_sysdict,SysDict>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/dicts
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "code" : "string",
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "description" : "string",
+  "extValue" : "string",
+  "isDesign" : "string",
+  "label" : "string",
+  "page" : 0,
+  "rows" : 0,
+  "sort" : 0,
+  "type" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_removedictusingdelete]]
+==== 删除单个字典
+....
+DELETE /system/dicts
+....
+
+
+===== 说明
+删除单个字典
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**code** +
+__必填__|code|string
+|**Path**|**type** +
+__必填__|type|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/dicts
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listbytypeusingget]]
+==== 根据类型查询字典
+....
+GET /system/dicts/{type}
+....
+
+
+===== 说明
+根据类型查询字典
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**type** +
+__必填__|type|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/dicts/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_viewdictusingget]]
+==== 查看单个字典
+....
+GET /system/dicts/{type}/{code}
+....
+
+
+===== 说明
+查看单个字典
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**code** +
+__必填__|code|string
+|**Path**|**type** +
+__必填__|type|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/dicts/string/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_fk-fkcs-controller_resource]]
+=== Fk-fkcs-controller
+飞控参数接口
+
+
+[[_addusingpost]]
+==== 添加单个对象
+....
+POST /fk/fkcs/fkFkcs
+....
+
+
+===== 说明
+添加单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**fkFkcs** +
+__可选__|fkFkcs|<<_fkfkcs,FkFkcs>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/fk/fkcs/fkFkcs
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "fjgd" : 0.0,
+  "fjname" : "string",
+  "fjsd" : 0.0,
+  "fxlc" : 0.0,
+  "fxsj" : 0.0,
+  "id" : "string",
+  "page" : 0,
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "xhzs" : 0.0
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_updateusingput_1]]
+==== 更新单个对象
+....
+PUT /fk/fkcs/fkFkcs
+....
+
+
+===== 说明
+更新单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**fkFkcs** +
+__可选__|fkFkcs|<<_fkfkcs,FkFkcs>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/fk/fkcs/fkFkcs
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "fjgd" : 0.0,
+  "fjname" : "string",
+  "fjsd" : 0.0,
+  "fxlc" : 0.0,
+  "fxsj" : 0.0,
+  "id" : "string",
+  "page" : 0,
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "xhzs" : 0.0
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listallusingget_3]]
+==== 获取所有该对象
+....
+GET /fk/fkcs/fkFkcss
+....
+
+
+===== 说明
+获取所有该对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**fjgd** +
+__可选__||number (double)
+|**Query**|**fjname** +
+__可选__||string
+|**Query**|**fjsd** +
+__可选__||number (double)
+|**Query**|**fxlc** +
+__可选__||number (double)
+|**Query**|**fxsj** +
+__可选__||number (double)
+|**Query**|**id** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|**Query**|**xhzs** +
+__可选__||number (double)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/fk/fkcs/fkFkcss
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "fjgd" : 0.0,
+  "fjname" : "string",
+  "fjsd" : 0.0,
+  "fxlc" : 0.0,
+  "fxsj" : 0.0,
+  "id" : "string",
+  "page" : 0,
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "xhzs" : 0.0
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_detailusingget]]
+==== 获取单个对象详情
+....
+GET /fk/fkcs/{id}
+....
+
+
+===== 说明
+获取单个对象详情
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/fk/fkcs/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_deleteusingdelete_1]]
+==== 删除单个对象
+....
+DELETE /fk/fkcs/{id}
+....
+
+
+===== 说明
+删除单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/fk/fkcs/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_fk-fkgl-controller_resource]]
+=== Fk-fkgl-controller
+飞控管理接口
+
+
+[[_addusingpost_1]]
+==== 添加单个对象
+....
+POST /fkgl/fkgl
+....
+
+
+===== 说明
+添加单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**fkFkgl** +
+__可选__|fkFkgl|<<_fkfkgl,FkFkgl>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/fkgl/fkgl
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "cljd" : "string",
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "ejhtm" : "string",
+  "esjtm" : "string",
+  "fjxh" : "string",
+  "fkrwlx" : "string",
+  "fxcs" : "string",
+  "fxmc" : "string",
+  "id" : "string",
+  "jglj" : "string",
+  "jhtm" : "string",
+  "page" : 0,
+  "rmk" : "string",
+  "rows" : 0,
+  "sbtype" : "string",
+  "sjhtm" : "string",
+  "sjtm" : "string",
+  "sqtm" : "string",
+  "ssjtm" : "string",
+  "state" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_updateusingput_2]]
+==== 更新单个对象
+....
+PUT /fkgl/fkgl
+....
+
+
+===== 说明
+更新单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**fkFkgl** +
+__可选__|fkFkgl|<<_fkfkgl,FkFkgl>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/fkgl/fkgl
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "cljd" : "string",
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "ejhtm" : "string",
+  "esjtm" : "string",
+  "fjxh" : "string",
+  "fkrwlx" : "string",
+  "fxcs" : "string",
+  "fxmc" : "string",
+  "id" : "string",
+  "jglj" : "string",
+  "jhtm" : "string",
+  "page" : 0,
+  "rmk" : "string",
+  "rows" : 0,
+  "sbtype" : "string",
+  "sjhtm" : "string",
+  "sjtm" : "string",
+  "sqtm" : "string",
+  "ssjtm" : "string",
+  "state" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listallusingget_4]]
+==== 获取所有参数集合
+....
+GET /fkgl/fkgls
+....
+
+
+===== 说明
+默认分页，如需不分页请设置参数rows为0
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**cljd** +
+__可选__||string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**ejhtm** +
+__可选__||string (date-time)
+|**Query**|**esjtm** +
+__可选__||string (date-time)
+|**Query**|**fjxh** +
+__可选__||string
+|**Query**|**fkrwlx** +
+__可选__||string
+|**Query**|**fxcs** +
+__可选__||string
+|**Query**|**fxmc** +
+__可选__||string
+|**Query**|**id** +
+__可选__||string
+|**Query**|**jglj** +
+__可选__||string
+|**Query**|**jhtm** +
+__可选__||string (date-time)
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**rmk** +
+__可选__||string
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**sbtype** +
+__可选__||string
+|**Query**|**sjhtm** +
+__可选__||string (date-time)
+|**Query**|**sjtm** +
+__可选__||string (date-time)
+|**Query**|**sqtm** +
+__可选__||string (date-time)
+|**Query**|**ssjtm** +
+__可选__||string (date-time)
+|**Query**|**state** +
+__可选__||string
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/fkgl/fkgls
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "cljd" : "string",
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "ejhtm" : "string",
+  "esjtm" : "string",
+  "fjxh" : "string",
+  "fkrwlx" : "string",
+  "fxcs" : "string",
+  "fxmc" : "string",
+  "id" : "string",
+  "jglj" : "string",
+  "jhtm" : "string",
+  "page" : 0,
+  "rmk" : "string",
+  "rows" : 0,
+  "sbtype" : "string",
+  "sjhtm" : "string",
+  "sjtm" : "string",
+  "sqtm" : "string",
+  "ssjtm" : "string",
+  "state" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_detailusingget_1]]
+==== 获取单个对象详情
+....
+GET /fkgl/{id}
+....
+
+
+===== 说明
+获取单个对象详情
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/fkgl/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_deleteusingdelete_2]]
+==== 删除单个对象
+....
+DELETE /fkgl/{id}
+....
+
+
+===== 说明
+删除单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/fkgl/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_login-controller_resource]]
+=== Login-controller
+用户登录登出接口
+
+
+[[_cleancacheusingget]]
+==== cleanCache
+....
+GET /system/cleanCache
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|无内容
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/cleanCache
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+[[_listmenuusingget]]
+==== listMenu
+....
+GET /system/listMenu
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/listMenu
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listpermissionsusingget]]
+==== listPermissions
+....
+GET /system/listPermission
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/listPermission
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_loginusingpost]]
+==== 用户登录
+....
+POST /system/login
+....
+
+
+===== 说明
+用户登录接口
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**user** +
+__必填__|user|<<_sysuser,SysUser>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/login
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "email" : "string",
+  "enterDate" : "string",
+  "id" : "string",
+  "mobile" : "string",
+  "name" : "string",
+  "openid" : "string",
+  "orgList" : [ {
+    "childs" : [ {
+      "childs" : [ "..." ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "delFlag" : "string",
+      "description" : "string",
+      "id" : "string",
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "rows" : 0,
+      "updateBy" : "string",
+      "updateDate" : "string"
+    } ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string"
+  } ],
+  "orgName" : "string",
+  "oriPassword" : "string",
+  "page" : 0,
+  "password" : "string",
+  "position" : "string",
+  "roleList" : [ {
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "resourceIdList" : [ "string" ],
+    "resourceList" : [ {
+      "checked" : true,
+      "childs" : [ {
+        "checked" : true,
+        "childs" : [ "..." ],
+        "createBy" : "string",
+        "createDate" : "string",
+        "creater" : "string",
+        "delFlag" : "string",
+        "icon" : "string",
+        "id" : "string",
+        "level" : 0,
+        "name" : "string",
+        "page" : 0,
+        "parentId" : "string",
+        "parentIds" : "string",
+        "permission" : "string",
+        "rows" : 0,
+        "sort" : 0,
+        "target" : "string",
+        "type" : "string",
+        "updateBy" : "string",
+        "updateDate" : "string",
+        "updater" : "string",
+        "url" : "string"
+      } ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "creater" : "string",
+      "delFlag" : "string",
+      "icon" : "string",
+      "id" : "string",
+      "level" : 0,
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "parentIds" : "string",
+      "permission" : "string",
+      "rows" : 0,
+      "sort" : 0,
+      "target" : "string",
+      "type" : "string",
+      "updateBy" : "string",
+      "updateDate" : "string",
+      "updater" : "string",
+      "url" : "string"
+    } ],
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "userIdList" : [ "string" ]
+  } ],
+  "rows" : 0,
+  "salt" : "string",
+  "sex" : "string",
+  "state" : "string",
+  "telphone" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "username" : "string",
+  "wxcode" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_logoutusingget]]
+==== logout
+....
+GET /system/logout
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/logout
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_org-controller_resource]]
+=== Org-controller
+组织机构管理接口
+
+
+[[_saveusingpost_2]]
+==== 添加单个组织
+....
+POST /system/orgs
+....
+
+
+===== 说明
+添加单个组织
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysOrg** +
+__可选__|sysOrg|<<_sysorg,SysOrg>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/orgs
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "childs" : [ {
+    "childs" : [ "..." ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string"
+  } ],
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "description" : "string",
+  "id" : "string",
+  "name" : "string",
+  "page" : 0,
+  "parentId" : "string",
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listallusingget_5]]
+==== 获取所有组织机构
+....
+GET /system/orgs
+....
+
+
+===== 说明
+获取组织机构
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**description** +
+__可选__||string
+|**Query**|**id** +
+__可选__||string
+|**Query**|**name** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**parentId** +
+__可选__||string
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/orgs
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "description" : "string",
+  "id" : "string",
+  "name" : "string",
+  "page" : 0,
+  "parentId" : "string",
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_updateusingput_3]]
+==== 编辑单个组织
+....
+PUT /system/orgs
+....
+
+
+===== 说明
+编辑单个组织
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysOrg** +
+__可选__|sysOrg|<<_sysorg,SysOrg>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/orgs
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "childs" : [ {
+    "childs" : [ "..." ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string"
+  } ],
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "description" : "string",
+  "id" : "string",
+  "name" : "string",
+  "page" : 0,
+  "parentId" : "string",
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_viewusingget]]
+==== 查看单个组织
+....
+GET /system/orgs/{id}
+....
+
+
+===== 说明
+查看单个组织
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/orgs/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_removeusingdelete]]
+==== 删除单个组织
+....
+DELETE /system/orgs/{id}
+....
+
+
+===== 说明
+删除单个组织
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__必填__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/orgs/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_proxy-controller_resource]]
+=== Proxy-controller
+Proxy Controller
+
+
+[[_find1usingget]]
+==== find1
+....
+GET /proxy/invok
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|string
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/proxy/invok
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+"string"
+----
+
+
+[[_find2usingget]]
+==== find2
+....
+GET /proxy/invok2
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_json,JSON>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/proxy/invok2
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{ }
+----
+
+
+[[_find3usingget]]
+==== find3
+....
+GET /proxy/invok3
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|string
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/proxy/invok3
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+"string"
+----
+
+
+[[_resource-controller_resource]]
+=== Resource-controller
+资源管理接口
+
+
+[[_saveusingpost_3]]
+==== 保存资源
+....
+POST /system/resources
+....
+
+
+===== 说明
+保存资源
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysResource** +
+__可选__|sysResource|<<_sysresource,SysResource>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/resources
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "checked" : true,
+  "childs" : [ {
+    "checked" : true,
+    "childs" : [ "..." ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "creater" : "string",
+    "delFlag" : "string",
+    "icon" : "string",
+    "id" : "string",
+    "level" : 0,
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "parentIds" : "string",
+    "permission" : "string",
+    "rows" : 0,
+    "sort" : 0,
+    "target" : "string",
+    "type" : "string",
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "updater" : "string",
+    "url" : "string"
+  } ],
+  "createBy" : "string",
+  "createDate" : "string",
+  "creater" : "string",
+  "delFlag" : "string",
+  "icon" : "string",
+  "id" : "string",
+  "level" : 0,
+  "name" : "string",
+  "page" : 0,
+  "parentId" : "string",
+  "parentIds" : "string",
+  "permission" : "string",
+  "rows" : 0,
+  "sort" : 0,
+  "target" : "string",
+  "type" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "updater" : "string",
+  "url" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listallusingget_6]]
+==== 获取所有资源
+....
+GET /system/resources
+....
+
+
+===== 说明
+获取所有资源
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**checked** +
+__可选__||boolean
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**creater** +
+__可选__||string
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**icon** +
+__可选__||string
+|**Query**|**id** +
+__可选__||string
+|**Query**|**level** +
+__可选__||integer (int32)
+|**Query**|**name** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**parentId** +
+__可选__||string
+|**Query**|**parentIds** +
+__可选__||string
+|**Query**|**permission** +
+__可选__||string
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**sort** +
+__可选__||integer (int32)
+|**Query**|**target** +
+__可选__||string
+|**Query**|**type** +
+__可选__||enum (MENU, BUTTON)
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|**Query**|**updater** +
+__可选__||string
+|**Query**|**url** +
+__可选__||string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/resources
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "checked" : true,
+  "createBy" : "string",
+  "createDate" : "string",
+  "creater" : "string",
+  "delFlag" : "string",
+  "icon" : "string",
+  "id" : "string",
+  "level" : 0,
+  "name" : "string",
+  "page" : 0,
+  "parentId" : "string",
+  "parentIds" : "string",
+  "permission" : "string",
+  "rows" : 0,
+  "sort" : 0,
+  "target" : "string",
+  "type" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "updater" : "string",
+  "url" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_updateusingput_4]]
+==== 编辑单个资源
+....
+PUT /system/resources
+....
+
+
+===== 说明
+编辑单个资源
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysResource** +
+__可选__|sysResource|<<_sysresource,SysResource>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/resources
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "checked" : true,
+  "childs" : [ {
+    "checked" : true,
+    "childs" : [ "..." ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "creater" : "string",
+    "delFlag" : "string",
+    "icon" : "string",
+    "id" : "string",
+    "level" : 0,
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "parentIds" : "string",
+    "permission" : "string",
+    "rows" : 0,
+    "sort" : 0,
+    "target" : "string",
+    "type" : "string",
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "updater" : "string",
+    "url" : "string"
+  } ],
+  "createBy" : "string",
+  "createDate" : "string",
+  "creater" : "string",
+  "delFlag" : "string",
+  "icon" : "string",
+  "id" : "string",
+  "level" : 0,
+  "name" : "string",
+  "page" : 0,
+  "parentId" : "string",
+  "parentIds" : "string",
+  "permission" : "string",
+  "rows" : 0,
+  "sort" : 0,
+  "target" : "string",
+  "type" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "updater" : "string",
+  "url" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_removeusingdelete_1]]
+==== 删除单个资源
+....
+DELETE /system/resources
+....
+
+
+===== 说明
+删除单个资源
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__必填__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/resources
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_viewusingget_1]]
+==== 查看单个资源
+....
+GET /system/resources/{id}
+....
+
+
+===== 说明
+查看单个资源
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/resources/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_role-controller_resource]]
+=== Role-controller
+角色管理接口
+
+
+[[_saveusingpost_4]]
+==== 保存角色
+....
+POST /system/roles
+....
+
+
+===== 说明
+保存角色
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysRole** +
+__可选__|sysRole|<<_sysrole,SysRole>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/roles
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "description" : "string",
+  "id" : "string",
+  "name" : "string",
+  "page" : 0,
+  "resourceIdList" : [ "string" ],
+  "resourceList" : [ {
+    "checked" : true,
+    "childs" : [ {
+      "checked" : true,
+      "childs" : [ "..." ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "creater" : "string",
+      "delFlag" : "string",
+      "icon" : "string",
+      "id" : "string",
+      "level" : 0,
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "parentIds" : "string",
+      "permission" : "string",
+      "rows" : 0,
+      "sort" : 0,
+      "target" : "string",
+      "type" : "string",
+      "updateBy" : "string",
+      "updateDate" : "string",
+      "updater" : "string",
+      "url" : "string"
+    } ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "creater" : "string",
+    "delFlag" : "string",
+    "icon" : "string",
+    "id" : "string",
+    "level" : 0,
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "parentIds" : "string",
+    "permission" : "string",
+    "rows" : 0,
+    "sort" : 0,
+    "target" : "string",
+    "type" : "string",
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "updater" : "string",
+    "url" : "string"
+  } ],
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "userIdList" : [ "string" ]
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listallusingget_7]]
+==== 获取所有角色
+....
+GET /system/roles
+....
+
+
+===== 说明
+获取所有角色
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**description** +
+__可选__||string
+|**Query**|**id** +
+__可选__||string
+|**Query**|**name** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**resourceIdList** +
+__可选__||< string > array(multi)
+|**Query**|**resourceList[0].checked** +
+__可选__||boolean
+|**Query**|**resourceList[0].createBy** +
+__可选__||string
+|**Query**|**resourceList[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**resourceList[0].creater** +
+__可选__||string
+|**Query**|**resourceList[0].delFlag** +
+__可选__||string
+|**Query**|**resourceList[0].icon** +
+__可选__||string
+|**Query**|**resourceList[0].id** +
+__可选__||string
+|**Query**|**resourceList[0].level** +
+__可选__||integer (int32)
+|**Query**|**resourceList[0].name** +
+__可选__||string
+|**Query**|**resourceList[0].page** +
+__可选__||integer (int32)
+|**Query**|**resourceList[0].parentId** +
+__可选__||string
+|**Query**|**resourceList[0].parentIds** +
+__可选__||string
+|**Query**|**resourceList[0].permission** +
+__可选__||string
+|**Query**|**resourceList[0].rows** +
+__可选__||integer (int32)
+|**Query**|**resourceList[0].sort** +
+__可选__||integer (int32)
+|**Query**|**resourceList[0].target** +
+__可选__||string
+|**Query**|**resourceList[0].type** +
+__可选__||enum (MENU, BUTTON)
+|**Query**|**resourceList[0].updateBy** +
+__可选__||string
+|**Query**|**resourceList[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**resourceList[0].updater** +
+__可选__||string
+|**Query**|**resourceList[0].url** +
+__可选__||string
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|**Query**|**userIdList** +
+__可选__||< string > array(multi)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/roles
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "description" : "string",
+  "id" : "string",
+  "name" : "string",
+  "page" : 0,
+  "resourceIdList" : "string",
+  "resourceList[0].checked" : true,
+  "resourceList[0].createBy" : "string",
+  "resourceList[0].createDate" : "string",
+  "resourceList[0].creater" : "string",
+  "resourceList[0].delFlag" : "string",
+  "resourceList[0].icon" : "string",
+  "resourceList[0].id" : "string",
+  "resourceList[0].level" : 0,
+  "resourceList[0].name" : "string",
+  "resourceList[0].page" : 0,
+  "resourceList[0].parentId" : "string",
+  "resourceList[0].parentIds" : "string",
+  "resourceList[0].permission" : "string",
+  "resourceList[0].rows" : 0,
+  "resourceList[0].sort" : 0,
+  "resourceList[0].target" : "string",
+  "resourceList[0].type" : "string",
+  "resourceList[0].updateBy" : "string",
+  "resourceList[0].updateDate" : "string",
+  "resourceList[0].updater" : "string",
+  "resourceList[0].url" : "string",
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "userIdList" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_updateroleusingput]]
+==== 更新角色
+....
+PUT /system/roles
+....
+
+
+===== 说明
+更新角色
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysRole** +
+__可选__|sysRole|<<_sysrole,SysRole>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/roles
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "description" : "string",
+  "id" : "string",
+  "name" : "string",
+  "page" : 0,
+  "resourceIdList" : [ "string" ],
+  "resourceList" : [ {
+    "checked" : true,
+    "childs" : [ {
+      "checked" : true,
+      "childs" : [ "..." ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "creater" : "string",
+      "delFlag" : "string",
+      "icon" : "string",
+      "id" : "string",
+      "level" : 0,
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "parentIds" : "string",
+      "permission" : "string",
+      "rows" : 0,
+      "sort" : 0,
+      "target" : "string",
+      "type" : "string",
+      "updateBy" : "string",
+      "updateDate" : "string",
+      "updater" : "string",
+      "url" : "string"
+    } ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "creater" : "string",
+    "delFlag" : "string",
+    "icon" : "string",
+    "id" : "string",
+    "level" : 0,
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "parentIds" : "string",
+    "permission" : "string",
+    "rows" : 0,
+    "sort" : 0,
+    "target" : "string",
+    "type" : "string",
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "updater" : "string",
+    "url" : "string"
+  } ],
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "userIdList" : [ "string" ]
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listresourcebyroleidusingget]]
+==== 根据roleId获取资源，标识是否选中状态
+....
+GET /system/roles/listRes/{roleId}
+....
+
+
+===== 说明
+根据roleId获取所有资源，标识是否选中状态
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**roleId** +
+__必填__|roleId|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/roles/listRes/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listuserusingget]]
+==== 根据角色获取用户列表
+....
+GET /system/roles/listuser/{roleId}
+....
+
+
+===== 说明
+根据角色获取用户列表
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**roleId** +
+__可选__|roleId|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/roles/listuser/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listroleresourceusingget]]
+==== 根据角色获取相应资源
+....
+GET /system/roles/resource/{id}
+....
+
+
+===== 说明
+根据角色获取相应资源
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__必填__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/roles/resource/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_setresourceusingpost]]
+==== 给角色设置资源
+....
+POST /system/roles/setResources
+....
+
+
+===== 说明
+给角色设置资源
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysRole** +
+__必填__|sysRole|<<_sysrole,SysRole>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/roles/setResources
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "description" : "string",
+  "id" : "string",
+  "name" : "string",
+  "page" : 0,
+  "resourceIdList" : [ "string" ],
+  "resourceList" : [ {
+    "checked" : true,
+    "childs" : [ {
+      "checked" : true,
+      "childs" : [ "..." ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "creater" : "string",
+      "delFlag" : "string",
+      "icon" : "string",
+      "id" : "string",
+      "level" : 0,
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "parentIds" : "string",
+      "permission" : "string",
+      "rows" : 0,
+      "sort" : 0,
+      "target" : "string",
+      "type" : "string",
+      "updateBy" : "string",
+      "updateDate" : "string",
+      "updater" : "string",
+      "url" : "string"
+    } ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "creater" : "string",
+    "delFlag" : "string",
+    "icon" : "string",
+    "id" : "string",
+    "level" : 0,
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "parentIds" : "string",
+    "permission" : "string",
+    "rows" : 0,
+    "sort" : 0,
+    "target" : "string",
+    "type" : "string",
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "updater" : "string",
+    "url" : "string"
+  } ],
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "userIdList" : [ "string" ]
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_setuserusingpost]]
+==== 为角色设置用户
+....
+POST /system/roles/setUser
+....
+
+
+===== 说明
+为角色设置用户
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysRole** +
+__必填__|sysRole|<<_sysrole,SysRole>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/roles/setUser
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "description" : "string",
+  "id" : "string",
+  "name" : "string",
+  "page" : 0,
+  "resourceIdList" : [ "string" ],
+  "resourceList" : [ {
+    "checked" : true,
+    "childs" : [ {
+      "checked" : true,
+      "childs" : [ "..." ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "creater" : "string",
+      "delFlag" : "string",
+      "icon" : "string",
+      "id" : "string",
+      "level" : 0,
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "parentIds" : "string",
+      "permission" : "string",
+      "rows" : 0,
+      "sort" : 0,
+      "target" : "string",
+      "type" : "string",
+      "updateBy" : "string",
+      "updateDate" : "string",
+      "updater" : "string",
+      "url" : "string"
+    } ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "creater" : "string",
+    "delFlag" : "string",
+    "icon" : "string",
+    "id" : "string",
+    "level" : 0,
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "parentIds" : "string",
+    "permission" : "string",
+    "rows" : 0,
+    "sort" : 0,
+    "target" : "string",
+    "type" : "string",
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "updater" : "string",
+    "url" : "string"
+  } ],
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "userIdList" : [ "string" ]
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_viewusingget_2]]
+==== 查看角色
+....
+GET /system/roles/{id}
+....
+
+
+===== 说明
+查看角色
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__必填__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/roles/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_removeusingdelete_2]]
+==== 删除角色
+....
+DELETE /system/roles/{id}
+....
+
+
+===== 说明
+删除角色
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__必填__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/roles/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_upload-controller_resource]]
+=== Upload-controller
+Upload Controller
+
+
+[[_downloadfileusingget]]
+==== downloadFile
+....
+GET /system/download
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/download
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_singlefileuploadusingpost]]
+==== singleFileUpload
+....
+POST /system/upload
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**FormData**|**file** +
+__可选__|file|file
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `multipart/form-data`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/upload
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 formData
+[source,json]
+----
+"file"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_fileuploadusingpost]]
+==== fileUpload
+....
+POST /system/uploadfile
+....
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**fjname** +
+__可选__||string
+|**Query**|**id** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**rmk** +
+__可选__||string
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhid** +
+__可选__||string
+|**Query**|**yhlcid** +
+__可选__||string
+|**Query**|**yhpath** +
+__可选__||string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/uploadfile
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "fjname" : "string",
+  "id" : "string",
+  "page" : 0,
+  "rmk" : "string",
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "yhid" : "string",
+  "yhlcid" : "string",
+  "yhpath" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_user-controller_resource]]
+=== User-controller
+用户管理接口
+
+
+[[_saveusingpost_5]]
+==== 保存用户
+....
+POST /system/users
+....
+
+
+===== 说明
+保存用户
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysUser** +
+__可选__|sysUser|<<_sysuser,SysUser>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/users
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "email" : "string",
+  "enterDate" : "string",
+  "id" : "string",
+  "mobile" : "string",
+  "name" : "string",
+  "openid" : "string",
+  "orgList" : [ {
+    "childs" : [ {
+      "childs" : [ "..." ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "delFlag" : "string",
+      "description" : "string",
+      "id" : "string",
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "rows" : 0,
+      "updateBy" : "string",
+      "updateDate" : "string"
+    } ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string"
+  } ],
+  "orgName" : "string",
+  "oriPassword" : "string",
+  "page" : 0,
+  "password" : "string",
+  "position" : "string",
+  "roleList" : [ {
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "resourceIdList" : [ "string" ],
+    "resourceList" : [ {
+      "checked" : true,
+      "childs" : [ {
+        "checked" : true,
+        "childs" : [ "..." ],
+        "createBy" : "string",
+        "createDate" : "string",
+        "creater" : "string",
+        "delFlag" : "string",
+        "icon" : "string",
+        "id" : "string",
+        "level" : 0,
+        "name" : "string",
+        "page" : 0,
+        "parentId" : "string",
+        "parentIds" : "string",
+        "permission" : "string",
+        "rows" : 0,
+        "sort" : 0,
+        "target" : "string",
+        "type" : "string",
+        "updateBy" : "string",
+        "updateDate" : "string",
+        "updater" : "string",
+        "url" : "string"
+      } ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "creater" : "string",
+      "delFlag" : "string",
+      "icon" : "string",
+      "id" : "string",
+      "level" : 0,
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "parentIds" : "string",
+      "permission" : "string",
+      "rows" : 0,
+      "sort" : 0,
+      "target" : "string",
+      "type" : "string",
+      "updateBy" : "string",
+      "updateDate" : "string",
+      "updater" : "string",
+      "url" : "string"
+    } ],
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "userIdList" : [ "string" ]
+  } ],
+  "rows" : 0,
+  "salt" : "string",
+  "sex" : "string",
+  "state" : "string",
+  "telphone" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "username" : "string",
+  "wxcode" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listallusingget_8]]
+==== 获取所有用户
+....
+GET /system/users
+....
+
+
+===== 说明
+获取所有用户
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**email** +
+__可选__||string
+|**Query**|**enterDate** +
+__可选__||string (date-time)
+|**Query**|**id** +
+__可选__||string
+|**Query**|**mobile** +
+__可选__||string
+|**Query**|**name** +
+__可选__||string
+|**Query**|**openid** +
+__可选__||string
+|**Query**|**orgList[0].createBy** +
+__可选__||string
+|**Query**|**orgList[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**orgList[0].delFlag** +
+__可选__||string
+|**Query**|**orgList[0].description** +
+__可选__||string
+|**Query**|**orgList[0].id** +
+__可选__||string
+|**Query**|**orgList[0].name** +
+__可选__||string
+|**Query**|**orgList[0].page** +
+__可选__||integer (int32)
+|**Query**|**orgList[0].parentId** +
+__可选__||string
+|**Query**|**orgList[0].rows** +
+__可选__||integer (int32)
+|**Query**|**orgList[0].updateBy** +
+__可选__||string
+|**Query**|**orgList[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**orgName** +
+__可选__||string
+|**Query**|**oriPassword** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**password** +
+__可选__||string
+|**Query**|**position** +
+__可选__||string
+|**Query**|**roleList[0].createBy** +
+__可选__||string
+|**Query**|**roleList[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**roleList[0].delFlag** +
+__可选__||string
+|**Query**|**roleList[0].description** +
+__可选__||string
+|**Query**|**roleList[0].id** +
+__可选__||string
+|**Query**|**roleList[0].name** +
+__可选__||string
+|**Query**|**roleList[0].page** +
+__可选__||integer (int32)
+|**Query**|**roleList[0].resourceIdList** +
+__可选__||< string > array(multi)
+|**Query**|**roleList[0].resourceList[0].checked** +
+__可选__||boolean
+|**Query**|**roleList[0].resourceList[0].createBy** +
+__可选__||string
+|**Query**|**roleList[0].resourceList[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**roleList[0].resourceList[0].creater** +
+__可选__||string
+|**Query**|**roleList[0].resourceList[0].delFlag** +
+__可选__||string
+|**Query**|**roleList[0].resourceList[0].icon** +
+__可选__||string
+|**Query**|**roleList[0].resourceList[0].id** +
+__可选__||string
+|**Query**|**roleList[0].resourceList[0].level** +
+__可选__||integer (int32)
+|**Query**|**roleList[0].resourceList[0].name** +
+__可选__||string
+|**Query**|**roleList[0].resourceList[0].page** +
+__可选__||integer (int32)
+|**Query**|**roleList[0].resourceList[0].parentId** +
+__可选__||string
+|**Query**|**roleList[0].resourceList[0].parentIds** +
+__可选__||string
+|**Query**|**roleList[0].resourceList[0].permission** +
+__可选__||string
+|**Query**|**roleList[0].resourceList[0].rows** +
+__可选__||integer (int32)
+|**Query**|**roleList[0].resourceList[0].sort** +
+__可选__||integer (int32)
+|**Query**|**roleList[0].resourceList[0].target** +
+__可选__||string
+|**Query**|**roleList[0].resourceList[0].type** +
+__可选__||enum (MENU, BUTTON)
+|**Query**|**roleList[0].resourceList[0].updateBy** +
+__可选__||string
+|**Query**|**roleList[0].resourceList[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**roleList[0].resourceList[0].updater** +
+__可选__||string
+|**Query**|**roleList[0].resourceList[0].url** +
+__可选__||string
+|**Query**|**roleList[0].rows** +
+__可选__||integer (int32)
+|**Query**|**roleList[0].updateBy** +
+__可选__||string
+|**Query**|**roleList[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**roleList[0].userIdList** +
+__可选__||< string > array(multi)
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**salt** +
+__可选__||string
+|**Query**|**sex** +
+__可选__||string
+|**Query**|**state** +
+__可选__||string
+|**Query**|**telphone** +
+__可选__||string
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|**Query**|**username** +
+__可选__|用户名|string
+|**Query**|**wxcode** +
+__可选__||string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/users
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "email" : "string",
+  "enterDate" : "string",
+  "id" : "string",
+  "mobile" : "string",
+  "name" : "string",
+  "openid" : "string",
+  "orgList[0].createBy" : "string",
+  "orgList[0].createDate" : "string",
+  "orgList[0].delFlag" : "string",
+  "orgList[0].description" : "string",
+  "orgList[0].id" : "string",
+  "orgList[0].name" : "string",
+  "orgList[0].page" : 0,
+  "orgList[0].parentId" : "string",
+  "orgList[0].rows" : 0,
+  "orgList[0].updateBy" : "string",
+  "orgList[0].updateDate" : "string",
+  "orgName" : "string",
+  "oriPassword" : "string",
+  "page" : 0,
+  "password" : "string",
+  "position" : "string",
+  "roleList[0].createBy" : "string",
+  "roleList[0].createDate" : "string",
+  "roleList[0].delFlag" : "string",
+  "roleList[0].description" : "string",
+  "roleList[0].id" : "string",
+  "roleList[0].name" : "string",
+  "roleList[0].page" : 0,
+  "roleList[0].resourceIdList" : "string",
+  "roleList[0].resourceList[0].checked" : true,
+  "roleList[0].resourceList[0].createBy" : "string",
+  "roleList[0].resourceList[0].createDate" : "string",
+  "roleList[0].resourceList[0].creater" : "string",
+  "roleList[0].resourceList[0].delFlag" : "string",
+  "roleList[0].resourceList[0].icon" : "string",
+  "roleList[0].resourceList[0].id" : "string",
+  "roleList[0].resourceList[0].level" : 0,
+  "roleList[0].resourceList[0].name" : "string",
+  "roleList[0].resourceList[0].page" : 0,
+  "roleList[0].resourceList[0].parentId" : "string",
+  "roleList[0].resourceList[0].parentIds" : "string",
+  "roleList[0].resourceList[0].permission" : "string",
+  "roleList[0].resourceList[0].rows" : 0,
+  "roleList[0].resourceList[0].sort" : 0,
+  "roleList[0].resourceList[0].target" : "string",
+  "roleList[0].resourceList[0].type" : "string",
+  "roleList[0].resourceList[0].updateBy" : "string",
+  "roleList[0].resourceList[0].updateDate" : "string",
+  "roleList[0].resourceList[0].updater" : "string",
+  "roleList[0].resourceList[0].url" : "string",
+  "roleList[0].rows" : 0,
+  "roleList[0].updateBy" : "string",
+  "roleList[0].updateDate" : "string",
+  "roleList[0].userIdList" : "string",
+  "rows" : 0,
+  "salt" : "string",
+  "sex" : "string",
+  "state" : "string",
+  "telphone" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "username" : "string",
+  "wxcode" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_updateusingput_5]]
+==== 更新用户
+....
+PUT /system/users
+....
+
+
+===== 说明
+更新用户
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysUser** +
+__必填__|sysUser|<<_sysuser,SysUser>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/users
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "email" : "string",
+  "enterDate" : "string",
+  "id" : "string",
+  "mobile" : "string",
+  "name" : "string",
+  "openid" : "string",
+  "orgList" : [ {
+    "childs" : [ {
+      "childs" : [ "..." ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "delFlag" : "string",
+      "description" : "string",
+      "id" : "string",
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "rows" : 0,
+      "updateBy" : "string",
+      "updateDate" : "string"
+    } ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string"
+  } ],
+  "orgName" : "string",
+  "oriPassword" : "string",
+  "page" : 0,
+  "password" : "string",
+  "position" : "string",
+  "roleList" : [ {
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "resourceIdList" : [ "string" ],
+    "resourceList" : [ {
+      "checked" : true,
+      "childs" : [ {
+        "checked" : true,
+        "childs" : [ "..." ],
+        "createBy" : "string",
+        "createDate" : "string",
+        "creater" : "string",
+        "delFlag" : "string",
+        "icon" : "string",
+        "id" : "string",
+        "level" : 0,
+        "name" : "string",
+        "page" : 0,
+        "parentId" : "string",
+        "parentIds" : "string",
+        "permission" : "string",
+        "rows" : 0,
+        "sort" : 0,
+        "target" : "string",
+        "type" : "string",
+        "updateBy" : "string",
+        "updateDate" : "string",
+        "updater" : "string",
+        "url" : "string"
+      } ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "creater" : "string",
+      "delFlag" : "string",
+      "icon" : "string",
+      "id" : "string",
+      "level" : 0,
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "parentIds" : "string",
+      "permission" : "string",
+      "rows" : 0,
+      "sort" : 0,
+      "target" : "string",
+      "type" : "string",
+      "updateBy" : "string",
+      "updateDate" : "string",
+      "updater" : "string",
+      "url" : "string"
+    } ],
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "userIdList" : [ "string" ]
+  } ],
+  "rows" : 0,
+  "salt" : "string",
+  "sex" : "string",
+  "state" : "string",
+  "telphone" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "username" : "string",
+  "wxcode" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_modifypwdusingpost]]
+==== 修改该用户密码
+....
+POST /system/users/pwd
+....
+
+
+===== 说明
+修改该用户密码
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysUser** +
+__必填__|sysUser|<<_sysuser,SysUser>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/users/pwd
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "email" : "string",
+  "enterDate" : "string",
+  "id" : "string",
+  "mobile" : "string",
+  "name" : "string",
+  "openid" : "string",
+  "orgList" : [ {
+    "childs" : [ {
+      "childs" : [ "..." ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "delFlag" : "string",
+      "description" : "string",
+      "id" : "string",
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "rows" : 0,
+      "updateBy" : "string",
+      "updateDate" : "string"
+    } ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string"
+  } ],
+  "orgName" : "string",
+  "oriPassword" : "string",
+  "page" : 0,
+  "password" : "string",
+  "position" : "string",
+  "roleList" : [ {
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "resourceIdList" : [ "string" ],
+    "resourceList" : [ {
+      "checked" : true,
+      "childs" : [ {
+        "checked" : true,
+        "childs" : [ "..." ],
+        "createBy" : "string",
+        "createDate" : "string",
+        "creater" : "string",
+        "delFlag" : "string",
+        "icon" : "string",
+        "id" : "string",
+        "level" : 0,
+        "name" : "string",
+        "page" : 0,
+        "parentId" : "string",
+        "parentIds" : "string",
+        "permission" : "string",
+        "rows" : 0,
+        "sort" : 0,
+        "target" : "string",
+        "type" : "string",
+        "updateBy" : "string",
+        "updateDate" : "string",
+        "updater" : "string",
+        "url" : "string"
+      } ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "creater" : "string",
+      "delFlag" : "string",
+      "icon" : "string",
+      "id" : "string",
+      "level" : 0,
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "parentIds" : "string",
+      "permission" : "string",
+      "rows" : 0,
+      "sort" : 0,
+      "target" : "string",
+      "type" : "string",
+      "updateBy" : "string",
+      "updateDate" : "string",
+      "updater" : "string",
+      "url" : "string"
+    } ],
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "userIdList" : [ "string" ]
+  } ],
+  "rows" : 0,
+  "salt" : "string",
+  "sex" : "string",
+  "state" : "string",
+  "telphone" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "username" : "string",
+  "wxcode" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_restpwdusingpost]]
+==== 重置密码
+....
+POST /system/users/restPwd
+....
+
+
+===== 说明
+重置密码
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysUser** +
+__必填__|sysUser|<<_sysuser,SysUser>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/users/restPwd
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "email" : "string",
+  "enterDate" : "string",
+  "id" : "string",
+  "mobile" : "string",
+  "name" : "string",
+  "openid" : "string",
+  "orgList" : [ {
+    "childs" : [ {
+      "childs" : [ "..." ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "delFlag" : "string",
+      "description" : "string",
+      "id" : "string",
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "rows" : 0,
+      "updateBy" : "string",
+      "updateDate" : "string"
+    } ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string"
+  } ],
+  "orgName" : "string",
+  "oriPassword" : "string",
+  "page" : 0,
+  "password" : "string",
+  "position" : "string",
+  "roleList" : [ {
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "resourceIdList" : [ "string" ],
+    "resourceList" : [ {
+      "checked" : true,
+      "childs" : [ {
+        "checked" : true,
+        "childs" : [ "..." ],
+        "createBy" : "string",
+        "createDate" : "string",
+        "creater" : "string",
+        "delFlag" : "string",
+        "icon" : "string",
+        "id" : "string",
+        "level" : 0,
+        "name" : "string",
+        "page" : 0,
+        "parentId" : "string",
+        "parentIds" : "string",
+        "permission" : "string",
+        "rows" : 0,
+        "sort" : 0,
+        "target" : "string",
+        "type" : "string",
+        "updateBy" : "string",
+        "updateDate" : "string",
+        "updater" : "string",
+        "url" : "string"
+      } ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "creater" : "string",
+      "delFlag" : "string",
+      "icon" : "string",
+      "id" : "string",
+      "level" : 0,
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "parentIds" : "string",
+      "permission" : "string",
+      "rows" : 0,
+      "sort" : 0,
+      "target" : "string",
+      "type" : "string",
+      "updateBy" : "string",
+      "updateDate" : "string",
+      "updater" : "string",
+      "url" : "string"
+    } ],
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "userIdList" : [ "string" ]
+  } ],
+  "rows" : 0,
+  "salt" : "string",
+  "sex" : "string",
+  "state" : "string",
+  "telphone" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "username" : "string",
+  "wxcode" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_updateuserselfusingpost]]
+==== 修改用户信息
+....
+POST /system/users/self
+....
+
+
+===== 说明
+修改用户信息
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**sysUser** +
+__必填__|sysUser|<<_sysuser,SysUser>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/users/self
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "email" : "string",
+  "enterDate" : "string",
+  "id" : "string",
+  "mobile" : "string",
+  "name" : "string",
+  "openid" : "string",
+  "orgList" : [ {
+    "childs" : [ {
+      "childs" : [ "..." ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "delFlag" : "string",
+      "description" : "string",
+      "id" : "string",
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "rows" : 0,
+      "updateBy" : "string",
+      "updateDate" : "string"
+    } ],
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "parentId" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string"
+  } ],
+  "orgName" : "string",
+  "oriPassword" : "string",
+  "page" : 0,
+  "password" : "string",
+  "position" : "string",
+  "roleList" : [ {
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "description" : "string",
+    "id" : "string",
+    "name" : "string",
+    "page" : 0,
+    "resourceIdList" : [ "string" ],
+    "resourceList" : [ {
+      "checked" : true,
+      "childs" : [ {
+        "checked" : true,
+        "childs" : [ "..." ],
+        "createBy" : "string",
+        "createDate" : "string",
+        "creater" : "string",
+        "delFlag" : "string",
+        "icon" : "string",
+        "id" : "string",
+        "level" : 0,
+        "name" : "string",
+        "page" : 0,
+        "parentId" : "string",
+        "parentIds" : "string",
+        "permission" : "string",
+        "rows" : 0,
+        "sort" : 0,
+        "target" : "string",
+        "type" : "string",
+        "updateBy" : "string",
+        "updateDate" : "string",
+        "updater" : "string",
+        "url" : "string"
+      } ],
+      "createBy" : "string",
+      "createDate" : "string",
+      "creater" : "string",
+      "delFlag" : "string",
+      "icon" : "string",
+      "id" : "string",
+      "level" : 0,
+      "name" : "string",
+      "page" : 0,
+      "parentId" : "string",
+      "parentIds" : "string",
+      "permission" : "string",
+      "rows" : 0,
+      "sort" : 0,
+      "target" : "string",
+      "type" : "string",
+      "updateBy" : "string",
+      "updateDate" : "string",
+      "updater" : "string",
+      "url" : "string"
+    } ],
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "userIdList" : [ "string" ]
+  } ],
+  "rows" : 0,
+  "salt" : "string",
+  "sex" : "string",
+  "state" : "string",
+  "telphone" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "username" : "string",
+  "wxcode" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_validateusernameusingget]]
+==== 验证用户是否存在
+....
+GET /system/users/validate/{username}
+....
+
+
+===== 说明
+验证用户是否存在
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Path**|**username** +
+__必填__|username|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|boolean
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/users/validate/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+true
+----
+
+
+[[_viewusingget_3]]
+==== 获取用户
+....
+GET /system/users/{id}
+....
+
+
+===== 说明
+根据ID获取用户
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/users/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_removeusingdelete_3]]
+==== 删除用户
+....
+DELETE /system/users/{id}
+....
+
+
+===== 说明
+删除用户
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__必填__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/system/users/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_yh-yhfj-controller_resource]]
+=== Yh-yhfj-controller
+隐患附件接口
+
+
+[[_downloadusingget]]
+==== 下载单个文件
+....
+GET /yh/yhfj/download/{id}
+....
+
+
+===== 说明
+下载单个文件
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhfj/download/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_addusingpost_2]]
+==== 添加单个对象
+....
+POST /yh/yhfj/yhYhfj
+....
+
+
+===== 说明
+添加单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**yhYhfj** +
+__可选__|yhYhfj|<<_yhyhfj,YhYhfj>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhfj/yhYhfj
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "fjname" : "string",
+  "id" : "string",
+  "page" : 0,
+  "rmk" : "string",
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "yhid" : "string",
+  "yhlcid" : "string",
+  "yhpath" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_updateusingput_6]]
+==== 更新单个对象
+....
+PUT /yh/yhfj/yhYhfj
+....
+
+
+===== 说明
+更新单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**yhYhfj** +
+__可选__|yhYhfj|<<_yhyhfj,YhYhfj>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhfj/yhYhfj
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "fjname" : "string",
+  "id" : "string",
+  "page" : 0,
+  "rmk" : "string",
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "yhid" : "string",
+  "yhlcid" : "string",
+  "yhpath" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listallusingget_9]]
+==== 获取所有该对象
+....
+GET /yh/yhfj/yhYhfjs
+....
+
+
+===== 说明
+获取所有该对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**fjname** +
+__可选__||string
+|**Query**|**id** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**rmk** +
+__可选__||string
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhid** +
+__可选__||string
+|**Query**|**yhlcid** +
+__可选__||string
+|**Query**|**yhpath** +
+__可选__||string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhfj/yhYhfjs
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "fjname" : "string",
+  "id" : "string",
+  "page" : 0,
+  "rmk" : "string",
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "yhid" : "string",
+  "yhlcid" : "string",
+  "yhpath" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_detailusingget_2]]
+==== 获取单个对象详情
+....
+GET /yh/yhfj/{id}
+....
+
+
+===== 说明
+获取单个对象详情
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhfj/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_deleteusingdelete_3]]
+==== 删除单个对象
+....
+DELETE /yh/yhfj/{id}
+....
+
+
+===== 说明
+删除单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhfj/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_yh-yhgl-controller_resource]]
+=== Yh-yhgl-controller
+隐患管理接口
+
+
+[[_bigscreendatausingget]]
+==== 大屏展示数据
+....
+GET /yh/yhgl/bigScreenData
+....
+
+
+===== 说明
+大屏展示数据
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhgl/bigScreenData
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_addusingpost_3]]
+==== 添加单个对象
+....
+POST /yh/yhgl/yhYhgl
+....
+
+
+===== 说明
+添加单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**yhYhgl** +
+__可选__|yhYhgl|<<_yhyhgl,YhYhgl>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhgl/yhYhgl
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "braoffice" : "string",
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "endtime" : "string",
+  "fkfkgl" : {
+    "cljd" : "string",
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "ejhtm" : "string",
+    "esjtm" : "string",
+    "fjxh" : "string",
+    "fkrwlx" : "string",
+    "fxcs" : "string",
+    "fxmc" : "string",
+    "id" : "string",
+    "jglj" : "string",
+    "jhtm" : "string",
+    "page" : 0,
+    "rmk" : "string",
+    "rows" : 0,
+    "sbtype" : "string",
+    "sjhtm" : "string",
+    "sjtm" : "string",
+    "sqtm" : "string",
+    "ssjtm" : "string",
+    "state" : "string",
+    "updateBy" : "string",
+    "updateDate" : "string"
+  },
+  "fkid" : "string",
+  "hdcgfs" : "string",
+  "hdlevel" : "string",
+  "hdtype" : "string",
+  "hdyhly" : "string",
+  "id" : "string",
+  "page" : 0,
+  "pipeline" : "string",
+  "rmk" : "string",
+  "rows" : 0,
+  "starttime" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "yhfjlist" : [ {
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "fjname" : "string",
+    "id" : "string",
+    "page" : 0,
+    "rmk" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "yhid" : "string",
+    "yhlcid" : "string",
+    "yhpath" : "string"
+  } ],
+  "yhh" : 0.0,
+  "yhlat" : 0.0,
+  "yhlclist" : [ {
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "hdczlx" : "string",
+    "id" : "string",
+    "page" : 0,
+    "rmk" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "yhfjlist" : [ {
+      "createBy" : "string",
+      "createDate" : "string",
+      "delFlag" : "string",
+      "fjname" : "string",
+      "id" : "string",
+      "page" : 0,
+      "rmk" : "string",
+      "rows" : 0,
+      "updateBy" : "string",
+      "updateDate" : "string",
+      "yhid" : "string",
+      "yhlcid" : "string",
+      "yhpath" : "string"
+    } ],
+    "yhid" : "string",
+    "yhry" : "string",
+    "yhstate" : "string",
+    "yhtime" : "string"
+  } ],
+  "yhlon" : 0.0,
+  "yhmc" : "string",
+  "yhstate" : "string",
+  "yhwz" : "string",
+  "yhzlfj" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_updateusingput_7]]
+==== 更新单个对象
+....
+PUT /yh/yhgl/yhYhgl
+....
+
+
+===== 说明
+更新单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**yhYhgl** +
+__可选__|yhYhgl|<<_yhyhgl,YhYhgl>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhgl/yhYhgl
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "braoffice" : "string",
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "endtime" : "string",
+  "fkfkgl" : {
+    "cljd" : "string",
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "ejhtm" : "string",
+    "esjtm" : "string",
+    "fjxh" : "string",
+    "fkrwlx" : "string",
+    "fxcs" : "string",
+    "fxmc" : "string",
+    "id" : "string",
+    "jglj" : "string",
+    "jhtm" : "string",
+    "page" : 0,
+    "rmk" : "string",
+    "rows" : 0,
+    "sbtype" : "string",
+    "sjhtm" : "string",
+    "sjtm" : "string",
+    "sqtm" : "string",
+    "ssjtm" : "string",
+    "state" : "string",
+    "updateBy" : "string",
+    "updateDate" : "string"
+  },
+  "fkid" : "string",
+  "hdcgfs" : "string",
+  "hdlevel" : "string",
+  "hdtype" : "string",
+  "hdyhly" : "string",
+  "id" : "string",
+  "page" : 0,
+  "pipeline" : "string",
+  "rmk" : "string",
+  "rows" : 0,
+  "starttime" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "yhfjlist" : [ {
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "fjname" : "string",
+    "id" : "string",
+    "page" : 0,
+    "rmk" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "yhid" : "string",
+    "yhlcid" : "string",
+    "yhpath" : "string"
+  } ],
+  "yhh" : 0.0,
+  "yhlat" : 0.0,
+  "yhlclist" : [ {
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "hdczlx" : "string",
+    "id" : "string",
+    "page" : 0,
+    "rmk" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "yhfjlist" : [ {
+      "createBy" : "string",
+      "createDate" : "string",
+      "delFlag" : "string",
+      "fjname" : "string",
+      "id" : "string",
+      "page" : 0,
+      "rmk" : "string",
+      "rows" : 0,
+      "updateBy" : "string",
+      "updateDate" : "string",
+      "yhid" : "string",
+      "yhlcid" : "string",
+      "yhpath" : "string"
+    } ],
+    "yhid" : "string",
+    "yhry" : "string",
+    "yhstate" : "string",
+    "yhtime" : "string"
+  } ],
+  "yhlon" : 0.0,
+  "yhmc" : "string",
+  "yhstate" : "string",
+  "yhwz" : "string",
+  "yhzlfj" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_confirmusingpost]]
+==== 确认隐患
+....
+POST /yh/yhgl/yhYhglConfirm
+....
+
+
+===== 说明
+带上传文件
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**braoffice** +
+__可选__||string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**endtime** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.cljd** +
+__可选__||string
+|**Query**|**fkfkgl.createBy** +
+__可选__||string
+|**Query**|**fkfkgl.createDate** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.delFlag** +
+__可选__||string
+|**Query**|**fkfkgl.ejhtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.esjtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.fjxh** +
+__可选__||string
+|**Query**|**fkfkgl.fkrwlx** +
+__可选__||string
+|**Query**|**fkfkgl.fxcs** +
+__可选__||string
+|**Query**|**fkfkgl.fxmc** +
+__可选__||string
+|**Query**|**fkfkgl.id** +
+__可选__||string
+|**Query**|**fkfkgl.jglj** +
+__可选__||string
+|**Query**|**fkfkgl.jhtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.page** +
+__可选__||integer (int32)
+|**Query**|**fkfkgl.rmk** +
+__可选__||string
+|**Query**|**fkfkgl.rows** +
+__可选__||integer (int32)
+|**Query**|**fkfkgl.sbtype** +
+__可选__||string
+|**Query**|**fkfkgl.sjhtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.sjtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.sqtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.ssjtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.state** +
+__可选__||string
+|**Query**|**fkfkgl.updateBy** +
+__可选__||string
+|**Query**|**fkfkgl.updateDate** +
+__可选__||string (date-time)
+|**Query**|**fkid** +
+__可选__||string
+|**Query**|**hdcgfs** +
+__可选__||string
+|**Query**|**hdlevel** +
+__可选__||string
+|**Query**|**hdtype** +
+__可选__||string
+|**Query**|**hdyhly** +
+__可选__||string
+|**Query**|**id** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**pipeline** +
+__可选__||string
+|**Query**|**rmk** +
+__可选__||string
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**starttime** +
+__可选__||string (date-time)
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhfjlist[0].createBy** +
+__可选__||string
+|**Query**|**yhfjlist[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**yhfjlist[0].delFlag** +
+__可选__||string
+|**Query**|**yhfjlist[0].fjname** +
+__可选__||string
+|**Query**|**yhfjlist[0].id** +
+__可选__||string
+|**Query**|**yhfjlist[0].page** +
+__可选__||integer (int32)
+|**Query**|**yhfjlist[0].rmk** +
+__可选__||string
+|**Query**|**yhfjlist[0].rows** +
+__可选__||integer (int32)
+|**Query**|**yhfjlist[0].updateBy** +
+__可选__||string
+|**Query**|**yhfjlist[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhfjlist[0].yhid** +
+__可选__||string
+|**Query**|**yhfjlist[0].yhlcid** +
+__可选__||string
+|**Query**|**yhfjlist[0].yhpath** +
+__可选__||string
+|**Query**|**yhh** +
+__可选__||number (double)
+|**Query**|**yhlat** +
+__可选__||number (double)
+|**Query**|**yhlclist[0].createBy** +
+__可选__||string
+|**Query**|**yhlclist[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**yhlclist[0].delFlag** +
+__可选__||string
+|**Query**|**yhlclist[0].hdczlx** +
+__可选__||string
+|**Query**|**yhlclist[0].id** +
+__可选__||string
+|**Query**|**yhlclist[0].page** +
+__可选__||integer (int32)
+|**Query**|**yhlclist[0].rmk** +
+__可选__||string
+|**Query**|**yhlclist[0].rows** +
+__可选__||integer (int32)
+|**Query**|**yhlclist[0].updateBy** +
+__可选__||string
+|**Query**|**yhlclist[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhlclist[0].yhfjlist[0].createBy** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**yhlclist[0].yhfjlist[0].delFlag** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].fjname** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].id** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].page** +
+__可选__||integer (int32)
+|**Query**|**yhlclist[0].yhfjlist[0].rmk** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].rows** +
+__可选__||integer (int32)
+|**Query**|**yhlclist[0].yhfjlist[0].updateBy** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhlclist[0].yhfjlist[0].yhid** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].yhlcid** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].yhpath** +
+__可选__||string
+|**Query**|**yhlclist[0].yhid** +
+__可选__||string
+|**Query**|**yhlclist[0].yhry** +
+__可选__||string
+|**Query**|**yhlclist[0].yhstate** +
+__可选__||string
+|**Query**|**yhlclist[0].yhtime** +
+__可选__||string (date-time)
+|**Query**|**yhlon** +
+__可选__||number (double)
+|**Query**|**yhmc** +
+__可选__||string
+|**Query**|**yhstate** +
+__可选__||string
+|**Query**|**yhwz** +
+__可选__||string
+|**Query**|**yhzlfj** +
+__可选__||string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhgl/yhYhglConfirm
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "braoffice" : "string",
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "endtime" : "string",
+  "fkfkgl.cljd" : "string",
+  "fkfkgl.createBy" : "string",
+  "fkfkgl.createDate" : "string",
+  "fkfkgl.delFlag" : "string",
+  "fkfkgl.ejhtm" : "string",
+  "fkfkgl.esjtm" : "string",
+  "fkfkgl.fjxh" : "string",
+  "fkfkgl.fkrwlx" : "string",
+  "fkfkgl.fxcs" : "string",
+  "fkfkgl.fxmc" : "string",
+  "fkfkgl.id" : "string",
+  "fkfkgl.jglj" : "string",
+  "fkfkgl.jhtm" : "string",
+  "fkfkgl.page" : 0,
+  "fkfkgl.rmk" : "string",
+  "fkfkgl.rows" : 0,
+  "fkfkgl.sbtype" : "string",
+  "fkfkgl.sjhtm" : "string",
+  "fkfkgl.sjtm" : "string",
+  "fkfkgl.sqtm" : "string",
+  "fkfkgl.ssjtm" : "string",
+  "fkfkgl.state" : "string",
+  "fkfkgl.updateBy" : "string",
+  "fkfkgl.updateDate" : "string",
+  "fkid" : "string",
+  "hdcgfs" : "string",
+  "hdlevel" : "string",
+  "hdtype" : "string",
+  "hdyhly" : "string",
+  "id" : "string",
+  "page" : 0,
+  "pipeline" : "string",
+  "rmk" : "string",
+  "rows" : 0,
+  "starttime" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "yhfjlist[0].createBy" : "string",
+  "yhfjlist[0].createDate" : "string",
+  "yhfjlist[0].delFlag" : "string",
+  "yhfjlist[0].fjname" : "string",
+  "yhfjlist[0].id" : "string",
+  "yhfjlist[0].page" : 0,
+  "yhfjlist[0].rmk" : "string",
+  "yhfjlist[0].rows" : 0,
+  "yhfjlist[0].updateBy" : "string",
+  "yhfjlist[0].updateDate" : "string",
+  "yhfjlist[0].yhid" : "string",
+  "yhfjlist[0].yhlcid" : "string",
+  "yhfjlist[0].yhpath" : "string",
+  "yhh" : 0.0,
+  "yhlat" : 0.0,
+  "yhlclist[0].createBy" : "string",
+  "yhlclist[0].createDate" : "string",
+  "yhlclist[0].delFlag" : "string",
+  "yhlclist[0].hdczlx" : "string",
+  "yhlclist[0].id" : "string",
+  "yhlclist[0].page" : 0,
+  "yhlclist[0].rmk" : "string",
+  "yhlclist[0].rows" : 0,
+  "yhlclist[0].updateBy" : "string",
+  "yhlclist[0].updateDate" : "string",
+  "yhlclist[0].yhfjlist[0].createBy" : "string",
+  "yhlclist[0].yhfjlist[0].createDate" : "string",
+  "yhlclist[0].yhfjlist[0].delFlag" : "string",
+  "yhlclist[0].yhfjlist[0].fjname" : "string",
+  "yhlclist[0].yhfjlist[0].id" : "string",
+  "yhlclist[0].yhfjlist[0].page" : 0,
+  "yhlclist[0].yhfjlist[0].rmk" : "string",
+  "yhlclist[0].yhfjlist[0].rows" : 0,
+  "yhlclist[0].yhfjlist[0].updateBy" : "string",
+  "yhlclist[0].yhfjlist[0].updateDate" : "string",
+  "yhlclist[0].yhfjlist[0].yhid" : "string",
+  "yhlclist[0].yhfjlist[0].yhlcid" : "string",
+  "yhlclist[0].yhfjlist[0].yhpath" : "string",
+  "yhlclist[0].yhid" : "string",
+  "yhlclist[0].yhry" : "string",
+  "yhlclist[0].yhstate" : "string",
+  "yhlclist[0].yhtime" : "string",
+  "yhlon" : 0.0,
+  "yhmc" : "string",
+  "yhstate" : "string",
+  "yhwz" : "string",
+  "yhzlfj" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listallusingget_10]]
+==== 获取所有该对象
+....
+GET /yh/yhgl/yhYhgls
+....
+
+
+===== 说明
+获取所有该对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**braoffice** +
+__可选__||string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**endtime** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.cljd** +
+__可选__||string
+|**Query**|**fkfkgl.createBy** +
+__可选__||string
+|**Query**|**fkfkgl.createDate** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.delFlag** +
+__可选__||string
+|**Query**|**fkfkgl.ejhtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.esjtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.fjxh** +
+__可选__||string
+|**Query**|**fkfkgl.fkrwlx** +
+__可选__||string
+|**Query**|**fkfkgl.fxcs** +
+__可选__||string
+|**Query**|**fkfkgl.fxmc** +
+__可选__||string
+|**Query**|**fkfkgl.id** +
+__可选__||string
+|**Query**|**fkfkgl.jglj** +
+__可选__||string
+|**Query**|**fkfkgl.jhtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.page** +
+__可选__||integer (int32)
+|**Query**|**fkfkgl.rmk** +
+__可选__||string
+|**Query**|**fkfkgl.rows** +
+__可选__||integer (int32)
+|**Query**|**fkfkgl.sbtype** +
+__可选__||string
+|**Query**|**fkfkgl.sjhtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.sjtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.sqtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.ssjtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.state** +
+__可选__||string
+|**Query**|**fkfkgl.updateBy** +
+__可选__||string
+|**Query**|**fkfkgl.updateDate** +
+__可选__||string (date-time)
+|**Query**|**fkid** +
+__可选__||string
+|**Query**|**hdcgfs** +
+__可选__||string
+|**Query**|**hdlevel** +
+__可选__||string
+|**Query**|**hdtype** +
+__可选__||string
+|**Query**|**hdyhly** +
+__可选__||string
+|**Query**|**id** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**pipeline** +
+__可选__||string
+|**Query**|**rmk** +
+__可选__||string
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**starttime** +
+__可选__||string (date-time)
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhfjlist[0].createBy** +
+__可选__||string
+|**Query**|**yhfjlist[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**yhfjlist[0].delFlag** +
+__可选__||string
+|**Query**|**yhfjlist[0].fjname** +
+__可选__||string
+|**Query**|**yhfjlist[0].id** +
+__可选__||string
+|**Query**|**yhfjlist[0].page** +
+__可选__||integer (int32)
+|**Query**|**yhfjlist[0].rmk** +
+__可选__||string
+|**Query**|**yhfjlist[0].rows** +
+__可选__||integer (int32)
+|**Query**|**yhfjlist[0].updateBy** +
+__可选__||string
+|**Query**|**yhfjlist[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhfjlist[0].yhid** +
+__可选__||string
+|**Query**|**yhfjlist[0].yhlcid** +
+__可选__||string
+|**Query**|**yhfjlist[0].yhpath** +
+__可选__||string
+|**Query**|**yhh** +
+__可选__||number (double)
+|**Query**|**yhlat** +
+__可选__||number (double)
+|**Query**|**yhlclist[0].createBy** +
+__可选__||string
+|**Query**|**yhlclist[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**yhlclist[0].delFlag** +
+__可选__||string
+|**Query**|**yhlclist[0].hdczlx** +
+__可选__||string
+|**Query**|**yhlclist[0].id** +
+__可选__||string
+|**Query**|**yhlclist[0].page** +
+__可选__||integer (int32)
+|**Query**|**yhlclist[0].rmk** +
+__可选__||string
+|**Query**|**yhlclist[0].rows** +
+__可选__||integer (int32)
+|**Query**|**yhlclist[0].updateBy** +
+__可选__||string
+|**Query**|**yhlclist[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhlclist[0].yhfjlist[0].createBy** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**yhlclist[0].yhfjlist[0].delFlag** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].fjname** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].id** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].page** +
+__可选__||integer (int32)
+|**Query**|**yhlclist[0].yhfjlist[0].rmk** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].rows** +
+__可选__||integer (int32)
+|**Query**|**yhlclist[0].yhfjlist[0].updateBy** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhlclist[0].yhfjlist[0].yhid** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].yhlcid** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].yhpath** +
+__可选__||string
+|**Query**|**yhlclist[0].yhid** +
+__可选__||string
+|**Query**|**yhlclist[0].yhry** +
+__可选__||string
+|**Query**|**yhlclist[0].yhstate** +
+__可选__||string
+|**Query**|**yhlclist[0].yhtime** +
+__可选__||string (date-time)
+|**Query**|**yhlon** +
+__可选__||number (double)
+|**Query**|**yhmc** +
+__可选__||string
+|**Query**|**yhstate** +
+__可选__||string
+|**Query**|**yhwz** +
+__可选__||string
+|**Query**|**yhzlfj** +
+__可选__||string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhgl/yhYhgls
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "braoffice" : "string",
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "endtime" : "string",
+  "fkfkgl.cljd" : "string",
+  "fkfkgl.createBy" : "string",
+  "fkfkgl.createDate" : "string",
+  "fkfkgl.delFlag" : "string",
+  "fkfkgl.ejhtm" : "string",
+  "fkfkgl.esjtm" : "string",
+  "fkfkgl.fjxh" : "string",
+  "fkfkgl.fkrwlx" : "string",
+  "fkfkgl.fxcs" : "string",
+  "fkfkgl.fxmc" : "string",
+  "fkfkgl.id" : "string",
+  "fkfkgl.jglj" : "string",
+  "fkfkgl.jhtm" : "string",
+  "fkfkgl.page" : 0,
+  "fkfkgl.rmk" : "string",
+  "fkfkgl.rows" : 0,
+  "fkfkgl.sbtype" : "string",
+  "fkfkgl.sjhtm" : "string",
+  "fkfkgl.sjtm" : "string",
+  "fkfkgl.sqtm" : "string",
+  "fkfkgl.ssjtm" : "string",
+  "fkfkgl.state" : "string",
+  "fkfkgl.updateBy" : "string",
+  "fkfkgl.updateDate" : "string",
+  "fkid" : "string",
+  "hdcgfs" : "string",
+  "hdlevel" : "string",
+  "hdtype" : "string",
+  "hdyhly" : "string",
+  "id" : "string",
+  "page" : 0,
+  "pipeline" : "string",
+  "rmk" : "string",
+  "rows" : 0,
+  "starttime" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "yhfjlist[0].createBy" : "string",
+  "yhfjlist[0].createDate" : "string",
+  "yhfjlist[0].delFlag" : "string",
+  "yhfjlist[0].fjname" : "string",
+  "yhfjlist[0].id" : "string",
+  "yhfjlist[0].page" : 0,
+  "yhfjlist[0].rmk" : "string",
+  "yhfjlist[0].rows" : 0,
+  "yhfjlist[0].updateBy" : "string",
+  "yhfjlist[0].updateDate" : "string",
+  "yhfjlist[0].yhid" : "string",
+  "yhfjlist[0].yhlcid" : "string",
+  "yhfjlist[0].yhpath" : "string",
+  "yhh" : 0.0,
+  "yhlat" : 0.0,
+  "yhlclist[0].createBy" : "string",
+  "yhlclist[0].createDate" : "string",
+  "yhlclist[0].delFlag" : "string",
+  "yhlclist[0].hdczlx" : "string",
+  "yhlclist[0].id" : "string",
+  "yhlclist[0].page" : 0,
+  "yhlclist[0].rmk" : "string",
+  "yhlclist[0].rows" : 0,
+  "yhlclist[0].updateBy" : "string",
+  "yhlclist[0].updateDate" : "string",
+  "yhlclist[0].yhfjlist[0].createBy" : "string",
+  "yhlclist[0].yhfjlist[0].createDate" : "string",
+  "yhlclist[0].yhfjlist[0].delFlag" : "string",
+  "yhlclist[0].yhfjlist[0].fjname" : "string",
+  "yhlclist[0].yhfjlist[0].id" : "string",
+  "yhlclist[0].yhfjlist[0].page" : 0,
+  "yhlclist[0].yhfjlist[0].rmk" : "string",
+  "yhlclist[0].yhfjlist[0].rows" : 0,
+  "yhlclist[0].yhfjlist[0].updateBy" : "string",
+  "yhlclist[0].yhfjlist[0].updateDate" : "string",
+  "yhlclist[0].yhfjlist[0].yhid" : "string",
+  "yhlclist[0].yhfjlist[0].yhlcid" : "string",
+  "yhlclist[0].yhfjlist[0].yhpath" : "string",
+  "yhlclist[0].yhid" : "string",
+  "yhlclist[0].yhry" : "string",
+  "yhlclist[0].yhstate" : "string",
+  "yhlclist[0].yhtime" : "string",
+  "yhlon" : 0.0,
+  "yhmc" : "string",
+  "yhstate" : "string",
+  "yhwz" : "string",
+  "yhzlfj" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_getyhreportdatausingget]]
+==== 隐患统计报表
+....
+GET /yh/yhgl/yhreport
+....
+
+
+===== 说明
+隐患统计报表
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**braoffice** +
+__可选__||string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**endtime** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.cljd** +
+__可选__||string
+|**Query**|**fkfkgl.createBy** +
+__可选__||string
+|**Query**|**fkfkgl.createDate** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.delFlag** +
+__可选__||string
+|**Query**|**fkfkgl.ejhtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.esjtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.fjxh** +
+__可选__||string
+|**Query**|**fkfkgl.fkrwlx** +
+__可选__||string
+|**Query**|**fkfkgl.fxcs** +
+__可选__||string
+|**Query**|**fkfkgl.fxmc** +
+__可选__||string
+|**Query**|**fkfkgl.id** +
+__可选__||string
+|**Query**|**fkfkgl.jglj** +
+__可选__||string
+|**Query**|**fkfkgl.jhtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.page** +
+__可选__||integer (int32)
+|**Query**|**fkfkgl.rmk** +
+__可选__||string
+|**Query**|**fkfkgl.rows** +
+__可选__||integer (int32)
+|**Query**|**fkfkgl.sbtype** +
+__可选__||string
+|**Query**|**fkfkgl.sjhtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.sjtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.sqtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.ssjtm** +
+__可选__||string (date-time)
+|**Query**|**fkfkgl.state** +
+__可选__||string
+|**Query**|**fkfkgl.updateBy** +
+__可选__||string
+|**Query**|**fkfkgl.updateDate** +
+__可选__||string (date-time)
+|**Query**|**fkid** +
+__可选__||string
+|**Query**|**hdcgfs** +
+__可选__||string
+|**Query**|**hdlevel** +
+__可选__||string
+|**Query**|**hdtype** +
+__可选__||string
+|**Query**|**hdyhly** +
+__可选__||string
+|**Query**|**id** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**pipeline** +
+__可选__||string
+|**Query**|**rmk** +
+__可选__||string
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**starttime** +
+__可选__||string (date-time)
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhfjlist[0].createBy** +
+__可选__||string
+|**Query**|**yhfjlist[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**yhfjlist[0].delFlag** +
+__可选__||string
+|**Query**|**yhfjlist[0].fjname** +
+__可选__||string
+|**Query**|**yhfjlist[0].id** +
+__可选__||string
+|**Query**|**yhfjlist[0].page** +
+__可选__||integer (int32)
+|**Query**|**yhfjlist[0].rmk** +
+__可选__||string
+|**Query**|**yhfjlist[0].rows** +
+__可选__||integer (int32)
+|**Query**|**yhfjlist[0].updateBy** +
+__可选__||string
+|**Query**|**yhfjlist[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhfjlist[0].yhid** +
+__可选__||string
+|**Query**|**yhfjlist[0].yhlcid** +
+__可选__||string
+|**Query**|**yhfjlist[0].yhpath** +
+__可选__||string
+|**Query**|**yhh** +
+__可选__||number (double)
+|**Query**|**yhlat** +
+__可选__||number (double)
+|**Query**|**yhlclist[0].createBy** +
+__可选__||string
+|**Query**|**yhlclist[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**yhlclist[0].delFlag** +
+__可选__||string
+|**Query**|**yhlclist[0].hdczlx** +
+__可选__||string
+|**Query**|**yhlclist[0].id** +
+__可选__||string
+|**Query**|**yhlclist[0].page** +
+__可选__||integer (int32)
+|**Query**|**yhlclist[0].rmk** +
+__可选__||string
+|**Query**|**yhlclist[0].rows** +
+__可选__||integer (int32)
+|**Query**|**yhlclist[0].updateBy** +
+__可选__||string
+|**Query**|**yhlclist[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhlclist[0].yhfjlist[0].createBy** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**yhlclist[0].yhfjlist[0].delFlag** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].fjname** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].id** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].page** +
+__可选__||integer (int32)
+|**Query**|**yhlclist[0].yhfjlist[0].rmk** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].rows** +
+__可选__||integer (int32)
+|**Query**|**yhlclist[0].yhfjlist[0].updateBy** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhlclist[0].yhfjlist[0].yhid** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].yhlcid** +
+__可选__||string
+|**Query**|**yhlclist[0].yhfjlist[0].yhpath** +
+__可选__||string
+|**Query**|**yhlclist[0].yhid** +
+__可选__||string
+|**Query**|**yhlclist[0].yhry** +
+__可选__||string
+|**Query**|**yhlclist[0].yhstate** +
+__可选__||string
+|**Query**|**yhlclist[0].yhtime** +
+__可选__||string (date-time)
+|**Query**|**yhlon** +
+__可选__||number (double)
+|**Query**|**yhmc** +
+__可选__||string
+|**Query**|**yhstate** +
+__可选__||string
+|**Query**|**yhwz** +
+__可选__||string
+|**Query**|**yhzlfj** +
+__可选__||string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhgl/yhreport
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "braoffice" : "string",
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "endtime" : "string",
+  "fkfkgl.cljd" : "string",
+  "fkfkgl.createBy" : "string",
+  "fkfkgl.createDate" : "string",
+  "fkfkgl.delFlag" : "string",
+  "fkfkgl.ejhtm" : "string",
+  "fkfkgl.esjtm" : "string",
+  "fkfkgl.fjxh" : "string",
+  "fkfkgl.fkrwlx" : "string",
+  "fkfkgl.fxcs" : "string",
+  "fkfkgl.fxmc" : "string",
+  "fkfkgl.id" : "string",
+  "fkfkgl.jglj" : "string",
+  "fkfkgl.jhtm" : "string",
+  "fkfkgl.page" : 0,
+  "fkfkgl.rmk" : "string",
+  "fkfkgl.rows" : 0,
+  "fkfkgl.sbtype" : "string",
+  "fkfkgl.sjhtm" : "string",
+  "fkfkgl.sjtm" : "string",
+  "fkfkgl.sqtm" : "string",
+  "fkfkgl.ssjtm" : "string",
+  "fkfkgl.state" : "string",
+  "fkfkgl.updateBy" : "string",
+  "fkfkgl.updateDate" : "string",
+  "fkid" : "string",
+  "hdcgfs" : "string",
+  "hdlevel" : "string",
+  "hdtype" : "string",
+  "hdyhly" : "string",
+  "id" : "string",
+  "page" : 0,
+  "pipeline" : "string",
+  "rmk" : "string",
+  "rows" : 0,
+  "starttime" : "string",
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "yhfjlist[0].createBy" : "string",
+  "yhfjlist[0].createDate" : "string",
+  "yhfjlist[0].delFlag" : "string",
+  "yhfjlist[0].fjname" : "string",
+  "yhfjlist[0].id" : "string",
+  "yhfjlist[0].page" : 0,
+  "yhfjlist[0].rmk" : "string",
+  "yhfjlist[0].rows" : 0,
+  "yhfjlist[0].updateBy" : "string",
+  "yhfjlist[0].updateDate" : "string",
+  "yhfjlist[0].yhid" : "string",
+  "yhfjlist[0].yhlcid" : "string",
+  "yhfjlist[0].yhpath" : "string",
+  "yhh" : 0.0,
+  "yhlat" : 0.0,
+  "yhlclist[0].createBy" : "string",
+  "yhlclist[0].createDate" : "string",
+  "yhlclist[0].delFlag" : "string",
+  "yhlclist[0].hdczlx" : "string",
+  "yhlclist[0].id" : "string",
+  "yhlclist[0].page" : 0,
+  "yhlclist[0].rmk" : "string",
+  "yhlclist[0].rows" : 0,
+  "yhlclist[0].updateBy" : "string",
+  "yhlclist[0].updateDate" : "string",
+  "yhlclist[0].yhfjlist[0].createBy" : "string",
+  "yhlclist[0].yhfjlist[0].createDate" : "string",
+  "yhlclist[0].yhfjlist[0].delFlag" : "string",
+  "yhlclist[0].yhfjlist[0].fjname" : "string",
+  "yhlclist[0].yhfjlist[0].id" : "string",
+  "yhlclist[0].yhfjlist[0].page" : 0,
+  "yhlclist[0].yhfjlist[0].rmk" : "string",
+  "yhlclist[0].yhfjlist[0].rows" : 0,
+  "yhlclist[0].yhfjlist[0].updateBy" : "string",
+  "yhlclist[0].yhfjlist[0].updateDate" : "string",
+  "yhlclist[0].yhfjlist[0].yhid" : "string",
+  "yhlclist[0].yhfjlist[0].yhlcid" : "string",
+  "yhlclist[0].yhfjlist[0].yhpath" : "string",
+  "yhlclist[0].yhid" : "string",
+  "yhlclist[0].yhry" : "string",
+  "yhlclist[0].yhstate" : "string",
+  "yhlclist[0].yhtime" : "string",
+  "yhlon" : 0.0,
+  "yhmc" : "string",
+  "yhstate" : "string",
+  "yhwz" : "string",
+  "yhzlfj" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_detailusingget_3]]
+==== 获取单个对象详情
+....
+GET /yh/yhgl/{id}
+....
+
+
+===== 说明
+获取单个对象详情
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhgl/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_deleteusingdelete_4]]
+==== 删除单个对象
+....
+DELETE /yh/yhgl/{id}
+....
+
+
+===== 说明
+删除单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhgl/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_yh-yhlc-controller_resource]]
+=== Yh-yhlc-controller
+隐患流程接口
+
+
+[[_addusingpost_4]]
+==== 添加单个对象
+....
+POST /yh/yhlc/yhYhlc
+....
+
+
+===== 说明
+添加单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**yhYhlc** +
+__可选__|yhYhlc|<<_yhyhlc,YhYhlc>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhlc/yhYhlc
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "hdczlx" : "string",
+  "id" : "string",
+  "page" : 0,
+  "rmk" : "string",
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "yhfjlist" : [ {
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "fjname" : "string",
+    "id" : "string",
+    "page" : 0,
+    "rmk" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "yhid" : "string",
+    "yhlcid" : "string",
+    "yhpath" : "string"
+  } ],
+  "yhid" : "string",
+  "yhry" : "string",
+  "yhstate" : "string",
+  "yhtime" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_updateusingput_8]]
+==== 更新单个对象
+....
+PUT /yh/yhlc/yhYhlc
+....
+
+
+===== 说明
+更新单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Body**|**yhYhlc** +
+__可选__|yhYhlc|<<_yhyhlc,YhYhlc>>
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhlc/yhYhlc
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 body
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "hdczlx" : "string",
+  "id" : "string",
+  "page" : 0,
+  "rmk" : "string",
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "yhfjlist" : [ {
+    "createBy" : "string",
+    "createDate" : "string",
+    "delFlag" : "string",
+    "fjname" : "string",
+    "id" : "string",
+    "page" : 0,
+    "rmk" : "string",
+    "rows" : 0,
+    "updateBy" : "string",
+    "updateDate" : "string",
+    "yhid" : "string",
+    "yhlcid" : "string",
+    "yhpath" : "string"
+  } ],
+  "yhid" : "string",
+  "yhry" : "string",
+  "yhstate" : "string",
+  "yhtime" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_listallusingget_11]]
+==== 获取所有该对象
+....
+GET /yh/yhlc/yhYhlcs
+....
+
+
+===== 说明
+获取所有该对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Query**|**createBy** +
+__可选__||string
+|**Query**|**createDate** +
+__可选__||string (date-time)
+|**Query**|**delFlag** +
+__可选__||string
+|**Query**|**hdczlx** +
+__可选__||string
+|**Query**|**id** +
+__可选__||string
+|**Query**|**page** +
+__可选__||integer (int32)
+|**Query**|**rmk** +
+__可选__||string
+|**Query**|**rows** +
+__可选__||integer (int32)
+|**Query**|**updateBy** +
+__可选__||string
+|**Query**|**updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhfjlist[0].createBy** +
+__可选__||string
+|**Query**|**yhfjlist[0].createDate** +
+__可选__||string (date-time)
+|**Query**|**yhfjlist[0].delFlag** +
+__可选__||string
+|**Query**|**yhfjlist[0].fjname** +
+__可选__||string
+|**Query**|**yhfjlist[0].id** +
+__可选__||string
+|**Query**|**yhfjlist[0].page** +
+__可选__||integer (int32)
+|**Query**|**yhfjlist[0].rmk** +
+__可选__||string
+|**Query**|**yhfjlist[0].rows** +
+__可选__||integer (int32)
+|**Query**|**yhfjlist[0].updateBy** +
+__可选__||string
+|**Query**|**yhfjlist[0].updateDate** +
+__可选__||string (date-time)
+|**Query**|**yhfjlist[0].yhid** +
+__可选__||string
+|**Query**|**yhfjlist[0].yhlcid** +
+__可选__||string
+|**Query**|**yhfjlist[0].yhpath** +
+__可选__||string
+|**Query**|**yhid** +
+__可选__||string
+|**Query**|**yhry** +
+__可选__||string
+|**Query**|**yhstate** +
+__可选__||string
+|**Query**|**yhtime** +
+__可选__||string (date-time)
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhlc/yhYhlcs
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+====== 请求 query
+[source,json]
+----
+{
+  "createBy" : "string",
+  "createDate" : "string",
+  "delFlag" : "string",
+  "hdczlx" : "string",
+  "id" : "string",
+  "page" : 0,
+  "rmk" : "string",
+  "rows" : 0,
+  "updateBy" : "string",
+  "updateDate" : "string",
+  "yhfjlist[0].createBy" : "string",
+  "yhfjlist[0].createDate" : "string",
+  "yhfjlist[0].delFlag" : "string",
+  "yhfjlist[0].fjname" : "string",
+  "yhfjlist[0].id" : "string",
+  "yhfjlist[0].page" : 0,
+  "yhfjlist[0].rmk" : "string",
+  "yhfjlist[0].rows" : 0,
+  "yhfjlist[0].updateBy" : "string",
+  "yhfjlist[0].updateDate" : "string",
+  "yhfjlist[0].yhid" : "string",
+  "yhfjlist[0].yhlcid" : "string",
+  "yhfjlist[0].yhpath" : "string",
+  "yhid" : "string",
+  "yhry" : "string",
+  "yhstate" : "string",
+  "yhtime" : "string"
+}
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_detailusingget_4]]
+==== 获取单个对象详情
+....
+GET /yh/yhlc/{id}
+....
+
+
+===== 说明
+获取单个对象详情
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhlc/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+[[_deleteusingdelete_5]]
+==== 删除单个对象
+....
+DELETE /yh/yhlc/{id}
+....
+
+
+===== 说明
+删除单个对象
+
+
+===== 参数
+
+[options="header", cols=".^2a,.^3a,.^6a,.^4a"]
+|===
+|类型|名称|说明|类型
+|**Header**|**Authorization** +
+__可选__|令牌(Bearer开头)|string
+|**Header**|**username** +
+__可选__|用户名|string
+|**Path**|**id** +
+__可选__|id|string
+|===
+
+
+===== 响应
+
+[options="header", cols=".^2a,.^14a,.^4a"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_responseentity,ResponseEntity>>
+|===
+
+
+===== 消耗
+
+* `application/json`
+
+
+===== 生成
+
+* `\*/*`
+
+
+===== HTTP请求示例
+
+====== 请求 path
+----
+/yh/yhlc/string
+----
+
+
+====== 请求 header
+[source,json]
+----
+"string"
+----
+
+
+===== HTTP响应示例
+
+====== 响应 200
+[source,json]
+----
+{
+  "body" : "object",
+  "statusCode" : "string",
+  "statusCodeValue" : 0
+}
+----
+
+
+
+
+[[_definitions]]
+== 定义
+
+[[_demo]]
+=== Demo
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**createBy** +
+__可选__|**样例** : `"string"`|string
+|**createDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**delFlag** +
+__可选__|**样例** : `"string"`|string
+|**id** +
+__可选__|**样例** : `"string"`|string
+|**name** +
+__可选__|**样例** : `"string"`|string
+|**page** +
+__可选__|**样例** : `0`|integer (int32)
+|**rows** +
+__可选__|**样例** : `0`|integer (int32)
+|**type** +
+__可选__|**样例** : `"string"`|string
+|**updateBy** +
+__可选__|**样例** : `"string"`|string
+|**updateDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|===
+
+
+[[_fkfkcs]]
+=== FkFkcs
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**createBy** +
+__可选__|**样例** : `"string"`|string
+|**createDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**delFlag** +
+__可选__|**样例** : `"string"`|string
+|**fjgd** +
+__可选__|**样例** : `0.0`|number (double)
+|**fjname** +
+__可选__|**样例** : `"string"`|string
+|**fjsd** +
+__可选__|**样例** : `0.0`|number (double)
+|**fxlc** +
+__可选__|**样例** : `0.0`|number (double)
+|**fxsj** +
+__可选__|**样例** : `0.0`|number (double)
+|**id** +
+__可选__|**样例** : `"string"`|string
+|**page** +
+__可选__|**样例** : `0`|integer (int32)
+|**rows** +
+__可选__|**样例** : `0`|integer (int32)
+|**updateBy** +
+__可选__|**样例** : `"string"`|string
+|**updateDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**xhzs** +
+__可选__|**样例** : `0.0`|number (double)
+|===
+
+
+[[_fkfkgl]]
+=== FkFkgl
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**cljd** +
+__可选__|**样例** : `"string"`|string
+|**createBy** +
+__可选__|**样例** : `"string"`|string
+|**createDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**delFlag** +
+__可选__|**样例** : `"string"`|string
+|**ejhtm** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**esjtm** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**fjxh** +
+__可选__|**样例** : `"string"`|string
+|**fkrwlx** +
+__可选__|**样例** : `"string"`|string
+|**fxcs** +
+__可选__|**样例** : `"string"`|string
+|**fxmc** +
+__可选__|**样例** : `"string"`|string
+|**id** +
+__可选__|**样例** : `"string"`|string
+|**jglj** +
+__可选__|**样例** : `"string"`|string
+|**jhtm** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**page** +
+__可选__|**样例** : `0`|integer (int32)
+|**rmk** +
+__可选__|**样例** : `"string"`|string
+|**rows** +
+__可选__|**样例** : `0`|integer (int32)
+|**sbtype** +
+__可选__|**样例** : `"string"`|string
+|**sjhtm** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**sjtm** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**sqtm** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**ssjtm** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**state** +
+__可选__|**样例** : `"string"`|string
+|**updateBy** +
+__可选__|**样例** : `"string"`|string
+|**updateDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|===
+
+
+[[_json]]
+=== JSON
+__类型__ : object
+
+
+[[_responseentity]]
+=== ResponseEntity
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**body** +
+__可选__|**样例** : `"object"`|object
+|**statusCode** +
+__可选__|**样例** : `"string"`|enum (100, 101, 102, 103, 200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 300, 301, 302, 303, 304, 305, 307, 308, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 426, 428, 429, 431, 451, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511)
+|**statusCodeValue** +
+__可选__|**样例** : `0`|integer (int32)
+|===
+
+
+[[_sysdict]]
+=== SysDict
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**code** +
+__可选__|**样例** : `"string"`|string
+|**createBy** +
+__可选__|**样例** : `"string"`|string
+|**createDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**delFlag** +
+__可选__|**样例** : `"string"`|string
+|**description** +
+__可选__|**样例** : `"string"`|string
+|**extValue** +
+__可选__|**样例** : `"string"`|string
+|**isDesign** +
+__可选__|**样例** : `"string"`|string
+|**label** +
+__可选__|**样例** : `"string"`|string
+|**page** +
+__可选__|**样例** : `0`|integer (int32)
+|**rows** +
+__可选__|**样例** : `0`|integer (int32)
+|**sort** +
+__可选__|**样例** : `0`|integer (int32)
+|**type** +
+__可选__|**样例** : `"string"`|string
+|**updateBy** +
+__可选__|**样例** : `"string"`|string
+|**updateDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|===
+
+
+[[_sysorg]]
+=== SysOrg
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**childs** +
+__可选__|**样例** : `[ "<<_sysorg>>" ]`|< <<_sysorg,SysOrg>> > array
+|**createBy** +
+__可选__|**样例** : `"string"`|string
+|**createDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**delFlag** +
+__可选__|**样例** : `"string"`|string
+|**description** +
+__可选__|**样例** : `"string"`|string
+|**id** +
+__可选__|**样例** : `"string"`|string
+|**name** +
+__可选__|**样例** : `"string"`|string
+|**page** +
+__可选__|**样例** : `0`|integer (int32)
+|**parentId** +
+__可选__|**样例** : `"string"`|string
+|**rows** +
+__可选__|**样例** : `0`|integer (int32)
+|**updateBy** +
+__可选__|**样例** : `"string"`|string
+|**updateDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|===
+
+
+[[_sysresource]]
+=== SysResource
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**checked** +
+__可选__|**样例** : `true`|boolean
+|**childs** +
+__可选__|**样例** : `[ "<<_sysresource>>" ]`|< <<_sysresource,SysResource>> > array
+|**createBy** +
+__可选__|**样例** : `"string"`|string
+|**createDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**creater** +
+__可选__|**样例** : `"string"`|string
+|**delFlag** +
+__可选__|**样例** : `"string"`|string
+|**icon** +
+__可选__|**样例** : `"string"`|string
+|**id** +
+__可选__|**样例** : `"string"`|string
+|**level** +
+__可选__|**样例** : `0`|integer (int32)
+|**name** +
+__可选__|**样例** : `"string"`|string
+|**page** +
+__可选__|**样例** : `0`|integer (int32)
+|**parentId** +
+__可选__|**样例** : `"string"`|string
+|**parentIds** +
+__可选__|**样例** : `"string"`|string
+|**permission** +
+__可选__|**样例** : `"string"`|string
+|**rows** +
+__可选__|**样例** : `0`|integer (int32)
+|**sort** +
+__可选__|**样例** : `0`|integer (int32)
+|**target** +
+__可选__|**样例** : `"string"`|string
+|**type** +
+__可选__|**样例** : `"string"`|enum (MENU, BUTTON)
+|**updateBy** +
+__可选__|**样例** : `"string"`|string
+|**updateDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**updater** +
+__可选__|**样例** : `"string"`|string
+|**url** +
+__可选__|**样例** : `"string"`|string
+|===
+
+
+[[_sysrole]]
+=== SysRole
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**createBy** +
+__可选__|**样例** : `"string"`|string
+|**createDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**delFlag** +
+__可选__|**样例** : `"string"`|string
+|**description** +
+__可选__|**样例** : `"string"`|string
+|**id** +
+__可选__|**样例** : `"string"`|string
+|**name** +
+__可选__|**样例** : `"string"`|string
+|**page** +
+__可选__|**样例** : `0`|integer (int32)
+|**resourceIdList** +
+__可选__|**样例** : `[ "string" ]`|< string > array
+|**resourceList** +
+__可选__|**样例** : `[ "<<_sysresource>>" ]`|< <<_sysresource,SysResource>> > array
+|**rows** +
+__可选__|**样例** : `0`|integer (int32)
+|**updateBy** +
+__可选__|**样例** : `"string"`|string
+|**updateDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**userIdList** +
+__可选__|**样例** : `[ "string" ]`|< string > array
+|===
+
+
+[[_sysuser]]
+=== SysUser
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**createBy** +
+__可选__|**样例** : `"string"`|string
+|**createDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**delFlag** +
+__可选__|**样例** : `"string"`|string
+|**email** +
+__可选__|**样例** : `"string"`|string
+|**enterDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**id** +
+__可选__|**样例** : `"string"`|string
+|**mobile** +
+__可选__|**样例** : `"string"`|string
+|**name** +
+__可选__|**样例** : `"string"`|string
+|**openid** +
+__可选__|**样例** : `"string"`|string
+|**orgList** +
+__可选__|**样例** : `[ "<<_sysorg>>" ]`|< <<_sysorg,SysOrg>> > array
+|**orgName** +
+__可选__|**样例** : `"string"`|string
+|**oriPassword** +
+__可选__|**样例** : `"string"`|string
+|**page** +
+__可选__|**样例** : `0`|integer (int32)
+|**password** +
+__可选__|**样例** : `"string"`|string
+|**position** +
+__可选__|**样例** : `"string"`|string
+|**roleList** +
+__可选__|**样例** : `[ "<<_sysrole>>" ]`|< <<_sysrole,SysRole>> > array
+|**rows** +
+__可选__|**样例** : `0`|integer (int32)
+|**salt** +
+__可选__|**样例** : `"string"`|string
+|**sex** +
+__可选__|**样例** : `"string"`|string
+|**state** +
+__可选__|**样例** : `"string"`|string
+|**telphone** +
+__可选__|**样例** : `"string"`|string
+|**updateBy** +
+__可选__|**样例** : `"string"`|string
+|**updateDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**username** +
+__可选__|**样例** : `"string"`|string
+|**wxcode** +
+__可选__|**样例** : `"string"`|string
+|===
+
+
+[[_yhyhfj]]
+=== YhYhfj
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**createBy** +
+__可选__|**样例** : `"string"`|string
+|**createDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**delFlag** +
+__可选__|**样例** : `"string"`|string
+|**fjname** +
+__可选__|**样例** : `"string"`|string
+|**id** +
+__可选__|**样例** : `"string"`|string
+|**page** +
+__可选__|**样例** : `0`|integer (int32)
+|**rmk** +
+__可选__|**样例** : `"string"`|string
+|**rows** +
+__可选__|**样例** : `0`|integer (int32)
+|**updateBy** +
+__可选__|**样例** : `"string"`|string
+|**updateDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**yhid** +
+__可选__|**样例** : `"string"`|string
+|**yhlcid** +
+__可选__|**样例** : `"string"`|string
+|**yhpath** +
+__可选__|**样例** : `"string"`|string
+|===
+
+
+[[_yhyhgl]]
+=== YhYhgl
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**braoffice** +
+__可选__|**样例** : `"string"`|string
+|**createBy** +
+__可选__|**样例** : `"string"`|string
+|**createDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**delFlag** +
+__可选__|**样例** : `"string"`|string
+|**endtime** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**fkfkgl** +
+__可选__|**样例** : <<_fkfkgl>>|<<_fkfkgl,FkFkgl>>
+|**fkid** +
+__可选__|**样例** : `"string"`|string
+|**hdcgfs** +
+__可选__|**样例** : `"string"`|string
+|**hdlevel** +
+__可选__|**样例** : `"string"`|string
+|**hdtype** +
+__可选__|**样例** : `"string"`|string
+|**hdyhly** +
+__可选__|**样例** : `"string"`|string
+|**id** +
+__可选__|**样例** : `"string"`|string
+|**page** +
+__可选__|**样例** : `0`|integer (int32)
+|**pipeline** +
+__可选__|**样例** : `"string"`|string
+|**rmk** +
+__可选__|**样例** : `"string"`|string
+|**rows** +
+__可选__|**样例** : `0`|integer (int32)
+|**starttime** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**updateBy** +
+__可选__|**样例** : `"string"`|string
+|**updateDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**yhfjlist** +
+__可选__|**样例** : `[ "<<_yhyhfj>>" ]`|< <<_yhyhfj,YhYhfj>> > array
+|**yhh** +
+__可选__|**样例** : `0.0`|number (double)
+|**yhlat** +
+__可选__|**样例** : `0.0`|number (double)
+|**yhlclist** +
+__可选__|**样例** : `[ "<<_yhyhlc>>" ]`|< <<_yhyhlc,YhYhlc>> > array
+|**yhlon** +
+__可选__|**样例** : `0.0`|number (double)
+|**yhmc** +
+__可选__|**样例** : `"string"`|string
+|**yhstate** +
+__可选__|**样例** : `"string"`|string
+|**yhwz** +
+__可选__|**样例** : `"string"`|string
+|**yhzlfj** +
+__可选__|**样例** : `"string"`|string
+|===
+
+
+[[_yhyhlc]]
+=== YhYhlc
+
+[options="header", cols=".^3a,.^11a,.^4a"]
+|===
+|名称|说明|类型
+|**createBy** +
+__可选__|**样例** : `"string"`|string
+|**createDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**delFlag** +
+__可选__|**样例** : `"string"`|string
+|**hdczlx** +
+__可选__|**样例** : `"string"`|string
+|**id** +
+__可选__|**样例** : `"string"`|string
+|**page** +
+__可选__|**样例** : `0`|integer (int32)
+|**rmk** +
+__可选__|**样例** : `"string"`|string
+|**rows** +
+__可选__|**样例** : `0`|integer (int32)
+|**updateBy** +
+__可选__|**样例** : `"string"`|string
+|**updateDate** +
+__可选__|**样例** : `"string"`|string (date-time)
+|**yhfjlist** +
+__可选__|**样例** : `[ "<<_yhyhfj>>" ]`|< <<_yhyhfj,YhYhfj>> > array
+|**yhid** +
+__可选__|**样例** : `"string"`|string
+|**yhry** +
+__可选__|**样例** : `"string"`|string
+|**yhstate** +
+__可选__|**样例** : `"string"`|string
+|**yhtime** +
+__可选__|**样例** : `"string"`|string (date-time)
+|===
+
+
+
+
+

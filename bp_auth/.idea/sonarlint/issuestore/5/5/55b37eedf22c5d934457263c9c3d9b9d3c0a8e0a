@@ -1,0 +1,10 @@
+
+rsquid:UselessImportCheck"GRemove this unused import 'com.alibaba.druid.sql.visitor.functions.If'.(íÁ©¼8Œ³ëŸø-
+„squid:UselessImportCheck "YRemove this unused import 'org.springframework.web.context.request.RequestContextHolder'.(ºãê8Œ³ëŸø-
+squid:UselessImportCheck"ORemove this unused import 'com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ'.(¬Ÿê³şÿÿÿÿ8Œ³ëŸø-
+fsquid:UselessImportCheck'";Remove this unused import 'javax.servlet.http.HttpSession'.(í¨ô8Œ³ëŸø-
+ˆsquid:UselessImportCheck!"]Remove this unused import 'org.springframework.web.context.request.ServletRequestAttributes'.(şĞ‘Ÿ8Œ³ëŸø-
+Xsquid:S1191"5Use classes from the Java API instead of Sun classes.(¬Ÿê³şÿÿÿÿ8Œ³ëŸø-
+lsquid:UselessImportCheck""<Remove this unused import 'tk.mybatis.mapper.common.Mapper'.(Éò‰Çøÿÿÿÿ8Œ³ëŸø-
+gsquid:UselessImportCheck+"7Remove this unused import 'java.security.SecureRandom'.(›éè™úÿÿÿÿ8Œ³ëŸø-
+osquid:UselessImportCheck"?Remove this unused import 'org.springframework.http.MediaType'.(úŸİ¯şÿÿÿÿ8Œ³ëŸø-

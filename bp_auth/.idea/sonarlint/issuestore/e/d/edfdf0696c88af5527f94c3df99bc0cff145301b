@@ -1,0 +1,18 @@
+
+fsquid:S1192"JDefine a constant instead of duplicating this literal "casFilter" 3 times.(Ó¦Ü8…æÎõ-
+Esquid:S1068"*Remove this unused "logger" private field.(Ôÿ™8…æÎõ-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").( ‹“ªüÿÿÿÿ8…æÎõ-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ãªìùÿÿÿÿ8…æÎõ-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(´ñ¢8…æÎõ-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Í•8…æÎõ-
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Áş£d8…æÎõ-
+Jsquid:S1172".Remove this unused method parameter "userDao".(•É²8…æÎõ-
+wsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(˜ÀÃº8…æÎõ-
+wsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‚ßİË8…æÎõ-
+wsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ñøÌ¿8…æÎõ-
+wsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ú²Ÿß8…æÎõ-
+|squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‡çÈóşÿÿÿÿ8…æÎõ-
+wsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(èÃºí8…æÎõ-
+vsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ñ±á18…æÎõ-
+|squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¦ßƒ»şÿÿÿÿ8…æÎõ-
+wsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‘„İ³8…æÎõ-

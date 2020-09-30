@@ -1,0 +1,12 @@
+
+msquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(µÛè¢þÿÿÿÿ
+Dsquid:S1068"*Remove this unused "logger" private field.(µÛè¢þÿÿÿÿ
+msquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŒîÌ/
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(â‚ÃÚûÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(›¼ÿåøÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(–ÛÎîøÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÄÁò•
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(íÎÊÉ
+{squid:S1488"fImmediately return this expression instead of assigning it to the temporary variable "subjectFactory".(Ìè‰ñ
+{squid:S1488"fImmediately return this expression instead of assigning it to the temporary variable "statelessAuthc".(ÕÓ«Ã
+‡squid:S1488"rImmediately return this expression instead of assigning it to the temporary variable "lifecycleBeanPostProcessor".(ÔŽï 

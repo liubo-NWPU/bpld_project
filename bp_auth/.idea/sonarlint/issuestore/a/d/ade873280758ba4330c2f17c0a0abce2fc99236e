@@ -1,0 +1,16 @@
+
+Ssquid:S2589"7Remove this expression which always evaluates to "true"(ÓíÅæ8«ğ«¡ø-
+[squid:S1118":Add a private constructor to hide the implicit public one.(åÃ¸áÿÿÿÿÿ8«ğ«¡ø-
+_squid:S2259"CA "NullPointerException" could be thrown; "field" is nullable here.(˜ÂÓ˜8«ğ«¡ø-
+`squid:S2259"DA "NullPointerException" could be thrown; "method" is nullable here.(Ó«§¯8«ğ«¡ø-
+_squid:S2259"CA "NullPointerException" could be thrown; "field" is nullable here.(˜ÂÓ˜8«ğ«¡ø-
+Fsquid:S00108")Either remove or fill this block of code.(ßÈ´8«ğ«¡ø-
+`squid:S2147"DCombine this catch with the one at line 53, which has the same body.(Å¡ß8«ğ«¡ø-
+`squid:S2147"DCombine this catch with the one at line 53, which has the same body.(åşáÿ8«ğ«¡ø-
+asquid:S2147"ECombine this catch with the one at line 106, which has the same body.(Å¡ß8«ğ«¡ø-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8«ğ«¡ø-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8«ğ«¡ø-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8«ğ«¡ø-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8«ğ«¡ø-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8«ğ«¡ø-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8«ğ«¡ø-

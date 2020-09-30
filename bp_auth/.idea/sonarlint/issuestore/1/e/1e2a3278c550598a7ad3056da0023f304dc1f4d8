@@ -1,0 +1,14 @@
+
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(æôƒ¢ÿÿÿÿÿ8ò‰æÎõ-
+bsquid:S1126"AReplace this if-then-else statement by a single return statement.(¤¦ß‘üÿÿÿÿ8ò‰æÎõ-
+esquid:CallToDeprecatedMethod"3Remove this use of "description"; it is deprecated.(ýäÇ±ýÿÿÿÿ8ò‰æÎõ-
+Fsquid:S00108")Either remove or fill this block of code.(å¥ž‡8ò‰æÎõ-
+Fsquid:S00108")Either remove or fill this block of code.(å¥ž‡8ò‰æÎõ-
+]squid:S3457"AFormat specifiers should be used instead of string concatenation.(¹þ·€8ò‰æÎõ-
+bsquid:S3457"AFormat specifiers should be used instead of string concatenation.(åðÿ¹þÿÿÿÿ8ò‰æÎõ-
+]squid:S3457"AFormat specifiers should be used instead of string concatenation.(äØÒè8ò‰æÎõ-
+bsquid:S3457"AFormat specifiers should be used instead of string concatenation.(Çúùåøÿÿÿÿ8ò‰æÎõ-
+bsquid:S3457"AFormat specifiers should be used instead of string concatenation.(žß«äüÿÿÿÿ8ò‰æÎõ-
+bsquid:S3457"AFormat specifiers should be used instead of string concatenation.(Ÿˆøõýÿÿÿÿ8ò‰æÎõ-
+]squid:S3457"AFormat specifiers should be used instead of string concatenation.(ì¶š8ò‰æÎõ-
+]squid:S3457"AFormat specifiers should be used instead of string concatenation.(­ï“¤8ò‰æÎõ-
